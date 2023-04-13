@@ -1,3 +1,5 @@
 const hello = (): string => {
-  return "Hello ParrotEnv!"
-}
+  return 'Hello ParrotEnv!';
+};
+
+export default hello;

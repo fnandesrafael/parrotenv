@@ -1,0 +1,12 @@
+{
+  "name": "parrotenv",
+  "version": "0.0.0",
+  "description": "ParrotEnv is a TypeScript-based CLI tool that helps you set up a JavaScript or React.js development environment tailored to your project's needs. It automates the process of installing and configuring common dependencies such as TypeScript, ESLint, Prettier, and EditorConfig, allowing you to focus on coding instead of configuration. With ParrotEnv, you can quickly scaffold your project with a standard and opinionated configuration that follows industry best practices. ParrotEnv is open-source and available under the MIT license with additional Copyright clause, allowing you to use it freely in your projects while respecting the author's copyright.",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "rafaelimaf",
+  "license": "MIT"
+}

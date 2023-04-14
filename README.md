@@ -14,12 +14,18 @@ parrotenv init
 # or the shortcut
 pe init
 ```
-Also, if you have installed with the `npm i parrotenv` command, you can use thist commando to start the CLI:
+
+Also, if you have installed the ParrotEnv with the `npm i parrotenv` command, you can use this command to start the CLI:
 ```cli
 npx parrotenv init
 
 # or the shortcut
 npx pe init
+```
+
+Or if you dont want to install it locally or globally, you can just use the verbose command:
+```cli
+npx parrotenv init
 ```
 
 # License

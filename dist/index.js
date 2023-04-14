@@ -8,9 +8,7 @@ const commander_1 = require("commander");
 const hello_1 = __importDefault(require("./functions/hello"));
 const program = new commander_1.Command();
 program
-    .version('0.0.0')
     .command('init')
-    .description('Initialize ParrotEnv configuration')
     .action(() => {
     (0, hello_1.default)();
 });

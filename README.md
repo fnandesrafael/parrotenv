@@ -1,6 +1,27 @@
 # About
 ParrotEnv is a TypeScript-based CLI tool that helps you set up a JavaScript/TypeScript or React project development environment. It automates the process of installing and configuring common dependencies such as editor configurations, linters, test tools and so on, allowing you to focus on coding rather than repeating the same configuration steps for each new project. With ParrotEnv, you can quickly scaffold your project with a standard and opinionated configuration that follows industry best practices. ParrotEnv is open-source and available under the MIT license with additional Copyright clauses, allowing you to use it freely in your projects while respecting the author's copyright.
 
+# Installation
+```cli
+npm i parrotenv -g # recommended
+```
+
+# Usage
+If you have installed ParrotEnv globally, you can use the command bellow to start the CLI:
+```cli
+parrotenv init
+
+# or the shortcut
+pe init
+```
+Also, if you have installed with the `npm i parrotenv` command, you can use thist commando to start the CLI:
+```cli
+npx parrotenv init
+
+# or the shortcut
+npx pe init
+```
+
 # License
 Copyright (c) 2023 Rafael Fernandes de Lima
 

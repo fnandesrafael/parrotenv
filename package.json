@@ -1,6 +1,6 @@
 {
   "name": "parrotenv",
-  "version": "0.3.0",
+  "version": "0.5.0",
   "description": "ParrotEnv is a TypeScript-based CLI tool that helps you set up a JavaScript/TypeScript or React project development environment.",
   "keywords": [
     "JavaScript",
@@ -35,7 +35,6 @@
   },
   "dependencies": {
     "chalk": "^5.2.0",
-    "copyfiles": "^2.4.1",
     "fs-extra": "^11.1.1",
     "inquirer": "^9.1.5",
     "nanospinner": "^1.1.0",

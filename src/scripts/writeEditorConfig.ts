@@ -1,14 +1,17 @@
+import path from 'path';
 import fs from 'fs-extra';
-import { exec } from 'child_process';
 
-const writeEditorConfig = async (hasInit) => {
-  if (hasInit) {
-    const projectRoot = process.cwd();
-    console.log(projectRoot);
+const writeEditorConfig = async () => {
+  const projectRoot = (path.join(process.cwd(), '/mock'));
+  const filePath = './src/templates/.editorconfig';
+
+  try {
+    await fs.copy(filePath, path.join(projectRoot, '.editorconfig'));
     return { sucess: true };
+  } catch (e) {
+    console.log(e);
+    return { sucess: false };
   }
-  exec('npm init -y');
-  return { sucess: true };
 };
 
 export default writeEditorConfig;

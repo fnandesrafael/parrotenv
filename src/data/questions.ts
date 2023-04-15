@@ -4,7 +4,7 @@ const questions = [
   {
     name: 'npm_init',
     type: 'list',
-    message: '🤔 Have you already initialized a node project with "npm init -y" command?',
+    message: `🤔 Have you already initialized a node project with the ${chalk.greenBright('npm init -y')} command?`,
     choices: ['Yes', 'No'],
   },
   {

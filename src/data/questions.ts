@@ -7,7 +7,6 @@ const questions = [
     message: '💻 Which code editor are you using for this project?',
     choices: [
       chalk.blueBright('VS Code'),
-      chalk.magentaBright('Flee'),
       'Another',
     ],
   },

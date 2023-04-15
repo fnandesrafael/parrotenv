@@ -19,6 +19,8 @@
   ],
   "rules": {
     "newline-per-chained-call": ["error", { "ignoreChainWithDepth": 2 }],
-    "import/extensions": ["error", "ignorePackages", { "js": "never" }]
+    "import/extensions": ["error", "ignorePackages", { "js": "never" }],
+    "no-promise-executor-return": "off"
+
   }
 }

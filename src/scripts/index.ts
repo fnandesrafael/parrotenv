@@ -1,3 +1,7 @@
-import writeEditorConfig from './writeEditorConfig.js';
+import writeEditorConfig from './editor/writeEditorConfig.js';
+import writeSettingsJson from './editor/writeSettingsJson.js';
 
-export { writeEditorConfig };
+export {
+  writeEditorConfig,
+  writeSettingsJson,
+};

@@ -5,7 +5,7 @@ import chalk from 'chalk';
 
 const writeEditorConfig = async () => {
   const spinner = createSpinner(
-    'Step 2/1 - Wait a moment while your ".editorconfig" file is being generated! Parrot!',
+    'Step 2.1 - Wait a moment while your ".editorconfig" file is being generated! Parrot!',
   ).start();
 
   const projectRoot = path.resolve(process.cwd(), 'mock');
@@ -14,13 +14,12 @@ const writeEditorConfig = async () => {
   try {
     await fs.copy(filePath, path.resolve(projectRoot, '.editorconfig'));
     spinner.success({ text: 'Your ".editorconfig" file was generated with exit.' });
-    return { sucess: true };
   } catch (e) {
     spinner.error({
       text: `${chalk.red(`It seems that some problems occurred while your "editorconfig" was being generated... Parrot...,
       \n${e}`)}`,
     });
-    return { sucess: false };
+    process.exit(1);
   }
 };
 

@@ -1,17 +1,22 @@
 import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
-import { writeEditorConfig } from '../scripts/index.js';
+import { writeEditorConfig, writeSettingsJson } from '../scripts/index.js';
 
 const configureVsCode = async () => {
   const spinner = createSpinner(
     `Step 2 - Parrot! Your ${chalk.blueBright('VS Code')} is being configured.`,
   ).start();
-  const editorConfig = await writeEditorConfig();
 
-  if (editorConfig.sucess) {
+  try {
+    await writeEditorConfig();
+    await writeSettingsJson();
+
     spinner.success({ text: `Your ${chalk.blueBright('VS Code')} settings have been configured sucessfully.` });
-  } else {
-    spinner.error({ text: chalk.red('The process of setting up the editor settings has failed... Parrot...') });
+  } catch (e) {
+    spinner.error({
+      text: chalk.red(`The process of setting up the editor settings has failed... Parrot...
+    \n ${e}`),
+    });
     process.exit(1);
   }
 };

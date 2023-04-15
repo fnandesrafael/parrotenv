@@ -18,18 +18,22 @@
     "type": "git",
     "url": "https://github.com/rafaelimaf/parrotenv"
   },
-  "main": "./dist/index.js",
+  "main": "./dist/main.js",
+  "type": "module",
   "bin": {
     "parrotenv": "./dist/index.js",
     "pe": "./dist/index.js"
   },
   "scripts": {
-    "build": "npx tsc"
+    "build": "tsc",
+    "start": "npm run build && node ./dist/index.js",
+    "dev": "ts-node ./src/index.ts"
   },
   "dependencies": {
-    "commander": "^10.0.0"
+    "inquirer": "^9.1.5"
   },
   "devDependencies": {
+    "@types/inquirer": "^9.0.3",
     "@types/node": "^18.15.11",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
     "@typescript-eslint/parser": "^5.58.0",
@@ -40,6 +44,6 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.7",
-    "typescript": "^5.0.4"
+    "ts-node": "^10.9.1"
   }
 }

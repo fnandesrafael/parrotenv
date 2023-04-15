@@ -15,7 +15,7 @@ parrotenv
 pe
 ```
 
-Or if you do want to install it locally, you can just use the npx commands:
+Or if you do want to install it locally with the `npm i parrotenv`, you can just use the npx commands after installing it on your project:
 ```bash
 npx parrotenv
 

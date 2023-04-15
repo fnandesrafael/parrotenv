@@ -19,6 +19,10 @@
     "url": "https://github.com/rafaelimaf/parrotenv"
   },
   "main": "./dist/index.js",
+  "files": [
+    "./public/**/*",
+    "./dist/**/*"
+  ],
   "type": "module",
   "bin": {
     "parrotenv": "./dist/index.js",

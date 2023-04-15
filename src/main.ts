@@ -1,7 +1,9 @@
 import inquirer from 'inquirer';
+import questions from './data/questions.js';
 
-const main = () => {
-  inquirer.prompt([{ type: 'list', name: 'ide', choices: ['VS Code', 'Another'] }]);
+const main = async () => {
+  const answers = await inquirer.prompt(questions);
+  console.log(answers);
 };
 
 export default main;

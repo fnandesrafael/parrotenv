@@ -1,4 +1,5 @@
 interface Answers {
+  'npm_init': string,
   'ide': string
 }
 

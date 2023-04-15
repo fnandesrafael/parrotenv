@@ -2,6 +2,7 @@ import stripAnsi from 'strip-ansi';
 import { Answers, Answer } from '../interfaces/index.js';
 
 const stripedAnswers = {
+  npm_init: '',
   ide: '',
 };
 

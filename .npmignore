@@ -1,4 +1,5 @@
 .vscode
+mock
 src
 .editorconfig
 .eslintignore

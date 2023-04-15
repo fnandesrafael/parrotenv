@@ -2,8 +2,8 @@ import path from 'path';
 import fs from 'fs-extra';
 
 const writeEditorConfig = async () => {
-  const projectRoot = (path.join(process.cwd(), '/mock'));
-  const filePath = './src/templates/.editorconfig';
+  const projectRoot = (path.join(process.cwd()));
+  const filePath = './public/.editorconfig';
 
   try {
     await fs.copy(filePath, path.join(projectRoot, '.editorconfig'));

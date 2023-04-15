@@ -30,9 +30,11 @@
     "dev": "ts-node ./src/index.ts"
   },
   "dependencies": {
+    "chalk": "^5.2.0",
     "inquirer": "^9.1.5"
   },
   "devDependencies": {
+    "@types/chalk": "^2.2.0",
     "@types/inquirer": "^9.0.3",
     "@types/node": "^18.15.11",
     "@typescript-eslint/eslint-plugin": "^5.58.0",

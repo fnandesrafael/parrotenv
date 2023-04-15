@@ -13,7 +13,7 @@ const setupParrot = async () => {
   ).start();
 
   try {
-    await util.promisify(exec)('npm install parrotenv -D', { cwd: './mock' });
+    await util.promisify(exec)('npm install parrotenv -D');
 
     spinner.success({ text: `${chalk.greenBright('Your ParrotEnv has been configured sucessfully! 🦜 Parrot!')}` });
   } catch (e) {
@@ -38,7 +38,7 @@ const main = async () => {
     await setupParrot();
     await initSetup(stripedAnswers);
   } else {
-    await util.promisify(exec)('npm init -y', { cwd: './mock' });
+    await util.promisify(exec)('npm init -y');
 
     await setupParrot();
     await initSetup(stripedAnswers);

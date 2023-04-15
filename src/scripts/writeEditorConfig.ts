@@ -8,7 +8,7 @@ const writeEditorConfig = async () => {
     'Step 2/1 - Wait a moment while your ".editorconfig" file is being generated! Parrot!',
   ).start();
 
-  const projectRoot = path.resolve(process.cwd(), 'mock');
+  const projectRoot = process.cwd();
   const filePath = path.resolve(projectRoot, './node_modules/parrotenv/public/.editorconfig');
 
   try {

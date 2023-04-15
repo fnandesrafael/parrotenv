@@ -15,9 +15,12 @@ parrotenv
 pe
 ```
 
-Or if you dont want to install it locally or globally, you can just use the npx command:
+Or if you do want to install it locally, you can just use the npx commands:
 ```bash
 npx parrotenv
+
+# or the shortcut
+pe
 ```
 
 # License

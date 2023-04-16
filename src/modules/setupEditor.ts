@@ -1,8 +1,8 @@
 import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
-import { writeEditorConfig, writeSettingsJson } from '../scripts/index.js';
+import { writeEditorConfig, writeSettingsJson } from '../scripts/editorSetup.js';
 
-const configureVsCode = async () => {
+const setupVsCode = async () => {
   const spinner = createSpinner(
     `Step 2 - Parrot! Your ${chalk.blueBright('VS Code')} is being configured.`,
   ).start();
@@ -21,10 +21,10 @@ const configureVsCode = async () => {
   }
 };
 
-const configureEditor = async (editor) => {
+const setupEditor = async (editor) => {
   switch (editor) {
     case 'VS Code':
-      configureVsCode();
+      setupVsCode();
       break;
 
     default:
@@ -32,4 +32,4 @@ const configureEditor = async (editor) => {
   }
 };
 
-export default configureEditor;
+export default setupEditor;

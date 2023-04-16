@@ -3,9 +3,9 @@ import { exec } from 'child_process';
 import util from 'util';
 import { createSpinner } from 'nanospinner';
 import chalk from 'chalk';
-import stripAnswers from './helpers/stripAnswers.js';
+import stripAnswers from './utils/stripAnswers.js';
 import questions from './data/questions.js';
-import { askAboutNodeProject, configureEditor } from './modules/index.js';
+import { verifyNode, setupEditor } from './modules/index.js';
 
 const setupParrot = async () => {
   const spinner = createSpinner(
@@ -24,24 +24,24 @@ const setupParrot = async () => {
   }
 };
 
-const initEnvSetup = async (answers) => {
-  await configureEditor(answers.ide);
+const initEnv = async (answers) => {
+  await setupEditor(answers.ide);
 };
 
 const main = async () => {
   const answers = await inquirer.prompt(questions);
   const stripedAnswers = stripAnswers(answers);
 
-  const hasInit = await askAboutNodeProject(stripedAnswers.npm_init);
+  const hasInit = await verifyNode(stripedAnswers.npm_init);
 
   if (hasInit) {
     await setupParrot();
-    await initEnvSetup(stripedAnswers);
+    await initEnv(stripedAnswers);
   } else {
     await util.promisify(exec)('npm init -y', { cwd: './mock' });
 
     await setupParrot();
-    await initEnvSetup(stripedAnswers);
+    await initEnv(stripedAnswers);
   }
 };
 

@@ -15,10 +15,10 @@ const setupParrot = async () => {
   try {
     await util.promisify(exec)('npm install parrotenv -D', { cwd: './mock' });
 
-    spinner.success({ text: `${chalk.greenBright('Your ParrotEnv has been configured sucessfully! 🦜 Parrot!')}` });
+    spinner.success({ text: `${chalk.greenBright('🦜 Parrot! Your ParrotEnv has been configured sucessfully!')}` });
   } catch (e) {
     spinner.error({
-      text: `${chalk.red(`It seems that some problems occurred while your ParrotEnv was being configured... Parrot...,\n${e}`)}`,
+      text: `${chalk.red(`It seems that some problems occurred while your ParrotEnv was being configured... 🦜 Parrot...,\n${e}`)}`,
     });
     process.exit(1);
   }

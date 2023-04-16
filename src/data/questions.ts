@@ -13,7 +13,7 @@ const questions = [
     message: '🛠️  Which build tool have you used to create this project?',
     choices: [
       chalk.yellow('Vite'),
-      'Another',
+      'N/A',
     ],
   },
   {
@@ -38,7 +38,7 @@ const questions = [
     message: '💻 Which code editor are you using for this project?',
     choices: [
       chalk.blueBright('VS Code'),
-      'Another',
+      'N/A',
     ],
   },
   {

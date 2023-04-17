@@ -9,7 +9,8 @@ const writeEditorConfig = async () => {
   ).start();
 
   const projectRoot = path.resolve(process.cwd(), 'mock');
-  const filePath = path.resolve(projectRoot, './node_modules/parrotenv/templates/.editorconfig');
+  // const filePath = path.resolve(projectRoot, './node_modules/parrotenv/templates/.editorconfig');
+  const filePath = path.resolve(projectRoot, '../templates/.editorconfig');
 
   try {
     await fs.copy(filePath, path.resolve(projectRoot, '.editorconfig'));

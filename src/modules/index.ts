@@ -1,7 +1,11 @@
-import askAboutNodeProject from './askAboutNodeProject.js';
-import configureEditor from './configureEditor.js';
+import verifyNode from './verifyNode.js';
+import setupBuildTool from './setupBuildTool.js';
+import setupLinting from './setupLinting.js';
+import setupEditor from './setupEditor.js';
 
 export {
-  askAboutNodeProject,
-  configureEditor,
+  verifyNode,
+  setupBuildTool,
+  setupLinting,
+  setupEditor,
 };

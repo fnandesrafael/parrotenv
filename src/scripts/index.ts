@@ -1,7 +1,17 @@
-import writeEditorConfig from './editor/writeEditorConfig.js';
-import writeSettingsJson from './editor/writeSettingsJson.js';
+import writeEditorConfig from './writeEditorConfig.js';
+import writeEditorSettings from './writeEditorSettings.js';
+import writeViteConfig from './writeViteConfig.js';
+import installPackages from './installPackages.js';
+import writeEslintrc from './writeEslintrc.js';
+import writePrettierrc from './writePrettierrc.js';
+import writeTsConfig from './writeTsConfig.js';
 
 export {
+  installPackages,
   writeEditorConfig,
-  writeSettingsJson,
+  writeEditorSettings,
+  writeViteConfig,
+  writeEslintrc,
+  writePrettierrc,
+  writeTsConfig,
 };

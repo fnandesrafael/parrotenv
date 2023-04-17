@@ -1,4 +1,4 @@
-const askAboutNodeProject = async (hasInit) => {
+const verifyNode = async (hasInit) => {
   switch (hasInit) {
     case 'Yes':
       return true;
@@ -14,4 +14,4 @@ const askAboutNodeProject = async (hasInit) => {
   }
 };
 
-export default askAboutNodeProject;
+export default verifyNode;

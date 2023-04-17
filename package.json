@@ -20,7 +20,7 @@
   },
   "main": "./dist/index.js",
   "files": [
-    "./public/**/*",
+    "./templates/**/*",
     "./dist/**/*"
   ],
   "type": "module",

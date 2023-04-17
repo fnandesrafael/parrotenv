@@ -6,6 +6,7 @@ import chalk from 'chalk';
 import stripAnswers from './utils/stripAnswers.js';
 import questions from './data/questions.js';
 import { verifyNode, setupEditor } from './modules/index.js';
+import setupBuildTool from './modules/setupBuildTool.js';
 
 const setupParrot = async () => {
   const spinner = createSpinner(
@@ -25,6 +26,7 @@ const setupParrot = async () => {
 };
 
 const initEnv = async (answers) => {
+  await setupBuildTool(answers.build_tool, answers.project_type);
   await setupEditor(answers.ide);
 };
 
@@ -39,7 +41,6 @@ const main = async () => {
     await initEnv(stripedAnswers);
   } else {
     await util.promisify(exec)('npm init -y', { cwd: './mock' });
-
     await setupParrot();
     await initEnv(stripedAnswers);
   }

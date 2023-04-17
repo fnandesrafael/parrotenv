@@ -4,7 +4,7 @@ import { writeEditorConfig, writeSettingsJson } from '../scripts/index.js';
 
 const setupVsCode = async () => {
   const spinner = createSpinner(
-    `Step 2 - Parrot! Your ${chalk.blueBright('VS Code')} is being configured.`,
+    `Step 3 - 🦜 Parrot! Your ${chalk.blueBright('VS Code')} is being configured.`,
   ).start();
 
   try {
@@ -14,7 +14,7 @@ const setupVsCode = async () => {
     spinner.success({ text: chalk.greenBright(`🦜 Parrot! Your ${chalk.blueBright('VS Code')} settings have been configured sucessfully.`) });
   } catch (e) {
     spinner.error({
-      text: chalk.red(`The process of setting up the editor settings has failed... 🦜 Parrot...
+      text: chalk.red(`The process of setting up your ${chalk.blueBright('VS Code')} settings has failed... 🦜 Parrot...
     \n ${e}`),
     });
     process.exit(1);
@@ -24,7 +24,7 @@ const setupVsCode = async () => {
 const setupEditor = async (editor) => {
   switch (editor) {
     case 'VS Code':
-      setupVsCode();
+      await setupVsCode();
       break;
 
     default:

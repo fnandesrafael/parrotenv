@@ -5,8 +5,9 @@ import { createSpinner } from 'nanospinner';
 import chalk from 'chalk';
 import stripAnswers from './utils/stripAnswers.js';
 import questions from './data/questions.js';
-import { verifyNode, setupEditor } from './modules/index.js';
-import setupBuildTool from './modules/setupBuildTool.js';
+import {
+  verifyNode, setupBuildTool, setupLinting, setupEditor,
+} from './modules/index.js';
 
 const setupParrot = async () => {
   const spinner = createSpinner(
@@ -27,6 +28,7 @@ const setupParrot = async () => {
 
 const initEnv = async (answers) => {
   await setupBuildTool(answers.build_tool, answers.project_type);
+  await setupLinting(answers.linting, answers.project_type);
   await setupEditor(answers.ide);
 };
 

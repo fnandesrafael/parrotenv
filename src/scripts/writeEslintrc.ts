@@ -3,7 +3,11 @@ import fs from 'fs-extra';
 
 const writeTsEslintrc = async () => {
   const projectRoot = path.resolve(process.cwd(), 'mock');
-  // const filePath = path.resolve(projectRoot, './node_modules/parrotenv/public/.eslintrc.json');
+  /**
+   * const filePath = path.resolve(
+   *  projectRoot, './node_modules/parrotenv/templates/.eslintrc.json'
+   * );
+   */
   const filePath = path.resolve(projectRoot, '../templates/typescript/.eslintrc.json');
 
   await fs.copy(filePath, path.resolve(projectRoot, '.eslintrc.json'));

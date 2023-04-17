@@ -10,7 +10,10 @@ const setupViteForReact = async () => {
   try {
     await writeViteConfig();
 
-    spinner.success({ text: chalk.greenBright(`🦜 Parrot! Your ${chalk.blueBright('Vite')} settings have been configured sucessfully.`) });
+    spinner.success({
+      text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.yellow('Vite')} settings have been configured successfully.`)}
+      ${chalk.greenBright('+')} "vite.config.js" file was generated with exit.`,
+    });
   } catch (e) {
     spinner.error({
       text: chalk.red(`The process of setting up your ${chalk.yellow('Vite')} settings has failed... 🦜 Parrot...

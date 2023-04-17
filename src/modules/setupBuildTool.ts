@@ -4,7 +4,7 @@ import writeViteConfig from '../scripts/writeViteConfig.js';
 
 const setupViteForReact = async () => {
   const spinner = createSpinner(
-    `Step 2 - 🦜 Parrot! Your ${chalk.yellow('Vite')} is being configured.`,
+    `Your ${chalk.yellow('Vite')} is being configured. 🦜 Parrot! `,
   ).start();
 
   try {
@@ -12,7 +12,7 @@ const setupViteForReact = async () => {
 
     spinner.success({
       text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.yellow('Vite')} settings have been configured successfully.`)}
-      ${chalk.greenBright('+')} "vite.config.js" file was generated with exit.`,
+      ${chalk.greenBright('+')} "vite.config.js" file was generated.`,
     });
   } catch (e) {
     spinner.error({

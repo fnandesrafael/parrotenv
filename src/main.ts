@@ -11,7 +11,7 @@ import {
 
 const setupParrot = async () => {
   const spinner = createSpinner(
-    `Step 1 - ${chalk.greenBright('🦜 Parrot! Wait a moment while your ParrotEnv is being configured!')}`,
+    `${chalk.greenBright('Wait a moment while your ParrotEnv is being configured! 🦜 Parrot! ')}`,
   ).start();
 
   try {

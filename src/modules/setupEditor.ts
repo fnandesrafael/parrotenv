@@ -4,14 +4,18 @@ import { writeEditorConfig, writeSettingsJson } from '../scripts/index.js';
 
 const setupVsCode = async () => {
   const spinner = createSpinner(
-    `Step 4 - 🦜 Parrot! Your ${chalk.blueBright('VS Code')} is being configured.`,
+    `Your ${chalk.blueBright('VS Code')} is being configured. 🦜 Parrot!`,
   ).start();
 
   try {
     await writeEditorConfig();
     await writeSettingsJson();
 
-    spinner.success({ text: chalk.greenBright(`🦜 Parrot! Your ${chalk.blueBright('VS Code')} settings have been configured sucessfully.`) });
+    spinner.success({
+      text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.blueBright('VS Code')} settings have been configured sucessfully.`)}
+      ${chalk.greenBright('+')} ".editorconfig" file was generated.
+      ${chalk.greenBright('+')} "settings.json" file was generated on .vscode.`,
+    });
   } catch (e) {
     spinner.error({
       text: chalk.red(`The process of setting up your ${chalk.blueBright('VS Code')} settings has failed... 🦜 Parrot...

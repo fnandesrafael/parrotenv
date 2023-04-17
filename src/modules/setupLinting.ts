@@ -4,7 +4,7 @@ import installPackages from '../scripts/installPackages.js';
 
 const setupTsLinting = async (project_type) => {
   const spinner = createSpinner(
-    `Step 2 - 🦜 Parrot! Your ${chalk.blue('TypeScript')} ${chalk.magentaBright('linting')} is being configured.`,
+    `Your ${chalk.blue('TypeScript')} ${chalk.magentaBright('linting')} is being configured. 🦜 Parrot!`,
   ).start();
 
   try {

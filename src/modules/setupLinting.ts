@@ -2,6 +2,7 @@ import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
 import installPackages from '../scripts/installPackages.js';
 import writeEslintrc from '../scripts/writeEslintrc.js';
+import writePrettierrc from '../scripts/writePrettierrc.js';
 
 const setupTsLinting = async (project_type) => {
   const spinner = createSpinner(
@@ -10,11 +11,14 @@ const setupTsLinting = async (project_type) => {
 
   try {
     await installPackages(project_type);
+    await writePrettierrc();
     await writeEslintrc(project_type);
 
     spinner.success({
       text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.blue('TypeScript')} ${chalk.magentaBright('linting')} settings have been configured sucessfully.`)}
-      ${chalk.greenBright('+')} The following packages have been added to your project devDependencies: ${chalk.gray('typescript @typescript-eslint/eslint-plugin @typescript-eslint/parser @types/node eslint eslint-config-airbnb-base eslint-config-airbnb-typescript eslint-plugin-import prettier eslint-config-prettier eslint-plugin-prettier')} `,
+      ${chalk.greenBright('+')} The following packages have been added to your project devDependencies: ${chalk.gray('typescript @typescript-eslint/eslint-plugin @typescript-eslint/parser @types/node eslint eslint-config-airbnb-base eslint-config-airbnb-typescript eslint-plugin-import prettier eslint-config-prettier eslint-plugin-prettier')}
+      ${chalk.greenBright('+')} ".prettierrc.json" file was generated.
+      ${chalk.greenBright('+')} ".eslintrc.json" file was generated.`,
     });
   } catch (e) {
     spinner.error({

@@ -5,7 +5,7 @@ import chalk from 'chalk';
 
 const writeEditorConfig = async () => {
   const spinner = createSpinner(
-    'Step 3.1 - Wait a moment while your ".editorconfig" file is being generated! 🦜 Parrot!',
+    'Step 4.1 - Wait a moment while your ".editorconfig" file is being generated! 🦜 Parrot!',
   ).start();
 
   const projectRoot = path.resolve(process.cwd(), 'mock');

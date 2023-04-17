@@ -5,7 +5,7 @@ import chalk from 'chalk';
 
 const writeSettingsJson = async () => {
   const spinner = createSpinner(
-    'Step 3.2 - Wait a moment while your "settings.json" file is being generated! 🦜 Parrot!',
+    'Step 4.2 - Wait a moment while your "settings.json" file is being generated! 🦜 Parrot!',
   ).start();
 
   const projectRoot = path.resolve(process.cwd(), 'mock');

@@ -4,7 +4,7 @@ import { writeEditorConfig, writeSettingsJson } from '../scripts/index.js';
 
 const setupVsCode = async () => {
   const spinner = createSpinner(
-    `Step 3 - 🦜 Parrot! Your ${chalk.blueBright('VS Code')} is being configured.`,
+    `Step 4 - 🦜 Parrot! Your ${chalk.blueBright('VS Code')} is being configured.`,
   ).start();
 
   try {

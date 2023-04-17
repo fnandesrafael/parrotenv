@@ -1,6 +1,7 @@
 import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
 import installPackages from '../scripts/installPackages.js';
+import writeEslintrc from '../scripts/writeEslintrc.js';
 
 const setupTsLinting = async (project_type) => {
   const spinner = createSpinner(
@@ -9,6 +10,7 @@ const setupTsLinting = async (project_type) => {
 
   try {
     await installPackages(project_type);
+    await writeEslintrc(project_type);
 
     spinner.success({
       text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.blue('TypeScript')} ${chalk.magentaBright('linting')} settings have been configured sucessfully.`)}

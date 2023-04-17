@@ -5,7 +5,7 @@ import chalk from 'chalk';
 
 const writeViteConfig = async () => {
   const spinner = createSpinner(
-    'Step 1.1 - Wait a moment while your "vite.config.js" file is being generated. 🦜 Parrot!',
+    'Step 2.1 - Wait a moment while your "vite.config.js" file is being generated. 🦜 Parrot!',
   ).start();
 
   const projectRoot = path.resolve(process.cwd(), 'mock');

@@ -5,7 +5,7 @@ const writeJsEslintrc = async () => {
   const projectRoot = path.resolve(process.cwd(), 'mock');
   /**
    * const filePath = path.resolve(
-   *  projectRoot, './node_modules/parrotenv/templates/react-js/.eslintrc.json'
+   *  projectRoot, './node_modules/parrotenv/templates/javascript/.eslintrc.json'
    * );
    */
   const filePath = path.resolve(projectRoot, '../templates/javascript/.eslintrc.json');

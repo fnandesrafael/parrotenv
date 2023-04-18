@@ -1,12 +1,17 @@
 {
   "name": "parrotenv",
-  "version": "0.6.2",
-  "description": "ParrotEnv is a TypeScript-based CLI tool that helps you set up a JavaScript/TypeScript or React project development environment.",
+  "version": "0.8.2",
+  "description": "ParrotEnv is a CLI framework that quickly sets up a development environment for your JavaScript-based project with standardized configurations for the language's essential development tools.",
   "keywords": [
     "JavaScript",
-    "Boilerplate",
-    "Setup",
     "Development",
+    "Environment",
+    "CLI",
+    "Assistant",
+    "Boilerplate",
+    "Standard",
+    "Setup",
+    "Tools",
     "Configuration"
   ],
   "author": "Rafael Fernandes de Lima",
@@ -16,7 +21,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rafaelimaf/parrotenv"
+    "url": "git+https://github.com/rafaelimaf/parrotenv.git"
   },
   "main": "./dist/index.js",
   "files": [
@@ -25,8 +30,8 @@
   ],
   "type": "module",
   "bin": {
-    "parrotenv": "./dist/index.js",
-    "pe": "./dist/index.js"
+    "parrotenv": "dist/index.js",
+    "pe": "dist/index.js"
   },
   "scripts": {
     "build": "tsc",
@@ -53,8 +58,12 @@
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^4.2.1",
-    "parrotenv": "^0.5.2",
+    "parrotenv": "^0.5.3",
     "prettier": "^2.8.7",
     "ts-node": "^10.9.1"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/rafaelimaf/parrotenv/issues"
+  },
+  "homepage": "https://github.com/rafaelimaf/parrotenv#readme"
 }

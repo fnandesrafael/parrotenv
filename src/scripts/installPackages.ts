@@ -8,10 +8,21 @@ const installTsLintingPkgs = async () => {
   );
 };
 
+const installReactJsLintingPkgs = async () => {
+  await util.promisify(exec)(
+    'npm i eslint eslint-config-airbnb eslint-config-prettier eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks prettier -D',
+    { cwd: './mock' },
+  );
+};
+
 const installPackages = async (project_type) => {
   switch (project_type) {
     case 'TypeScript':
       await installTsLintingPkgs();
+      break;
+
+    case 'React w/ JavaScript':
+      await installReactJsLintingPkgs();
       break;
 
     default:

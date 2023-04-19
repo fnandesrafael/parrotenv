@@ -20,11 +20,11 @@ Or if you do want to install it locally with the `npm i parrotenv`, you can just
 npx parrotenv
 
 # or the shortcut
-pe
+npx pe
 ```
 
 # License
-Copyright (c) 2023 Rafael Fernandes de Lima
+**Copyright (c) 2023 Rafael Fernandes de Lima**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to use, copy, modify and/or merge the Software, subject to the following conditions:
 

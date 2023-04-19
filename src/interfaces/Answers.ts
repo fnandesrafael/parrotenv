@@ -4,6 +4,7 @@ interface Answers {
   'project_type': string,
   'linting': string
   'ide': string,
+  'styling': string
 }
 
 export default Answers;

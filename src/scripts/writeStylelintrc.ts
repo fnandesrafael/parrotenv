@@ -5,7 +5,7 @@ const writeVanillaStylelintrc = async () => {
   const projectRoot = path.resolve(process.cwd(), 'mock');
   /**
    * const filePath = path.resolve(
-   *  projectRoot, './node_modules/parrotenv/templates/react-js/.eslintrc.json'
+   *  projectRoot, './node_modules/parrotenv/templates/javascript/.stylelintrc.json'
    * );
    */
   const filePath = path.resolve(projectRoot, '../templates/javascript/.stylelintrc.json');
@@ -17,7 +17,7 @@ const writeReactStylelintrc = async () => {
   const projectRoot = path.resolve(process.cwd(), 'mock');
   /**
    * const filePath = path.resolve(
-   *  projectRoot, './node_modules/parrotenv/templates/react-js/.eslintrc.json'
+   *  projectRoot, './node_modules/parrotenv/templates/react-js/.stylelintrc.json'
    * );
    */
   const filePath = path.resolve(projectRoot, '../templates/react-js/.stylelintrc.json');

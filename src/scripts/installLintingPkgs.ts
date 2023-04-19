@@ -22,7 +22,7 @@ const installTsLintingPkgs = async () => {
   );
 };
 
-const installPackages = async (project_type: string) => {
+const installLintingPkgs = async (project_type: string) => {
   switch (project_type) {
     case 'TypeScript':
       await installTsLintingPkgs();
@@ -41,4 +41,4 @@ const installPackages = async (project_type: string) => {
   }
 };
 
-export default installPackages;
+export default installLintingPkgs;

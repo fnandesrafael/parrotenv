@@ -3,9 +3,11 @@ import { Answers, Answer } from '../interfaces/index.js';
 
 const stripedAnswers = {
   npm_init: '',
-  ide: '',
   build_tool: '',
   project_type: '',
+  linting: '',
+  ide: '',
+  styling: '',
 };
 
 const stripAnswers = (obj: Answer): Answers => {

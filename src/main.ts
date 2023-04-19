@@ -9,6 +9,7 @@ import {
   verifyNode, setupBuildTool, setupLinting, setupEditor,
 } from './modules/index.js';
 import Answers from './interfaces/Answers.js';
+import setupStylint from './modules/setupStyling.js';
 
 const setupParrot = async () => {
   const spinner = createSpinner(
@@ -31,6 +32,7 @@ const initEnv = async (answers: Answers) => {
   await setupBuildTool(answers.build_tool, answers.project_type);
   await setupLinting(answers.linting, answers.project_type);
   await setupEditor(answers.ide);
+  await setupStylint(answers.styling, answers.project_type);
 };
 
 const main = async () => {

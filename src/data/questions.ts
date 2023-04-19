@@ -42,7 +42,7 @@ const questions = [
     ],
   },
   {
-    name: 'stylelint',
+    name: 'styling',
     type: 'list',
     message: `🎨 Perchance your'e planning on writing any ${chalk.blue('CSS')}, would you like to set up a standard linting configuration with ${chalk.magentaBright('Stylelint')}?`,
     choices: ['Yes', 'No'],

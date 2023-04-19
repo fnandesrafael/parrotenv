@@ -23,7 +23,7 @@ const setupViteForReact = async () => {
   }
 };
 
-const setupBuildTool = async (build_tool, project_type) => {
+const setupBuildTool = async (build_tool: string, project_type: string) => {
   switch (build_tool) {
     case 'Vite':
       if (project_type === 'React w/ JavaScript') {

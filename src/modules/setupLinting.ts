@@ -5,7 +5,7 @@ import writeEslintrc from '../scripts/writeEslintrc.js';
 import writePrettierrc from '../scripts/writePrettierrc.js';
 import writeTsConfig from '../scripts/writeTsConfig.js';
 
-const setupJsLinting = async (project_type) => {
+const setupJsLinting = async (project_type: string) => {
   const spinner = createSpinner(
     `Your ${chalk.yellow('JavaScript')} ${chalk.magentaBright('linting')} is being configured. 🦜 Parrot!`,
   ).start();
@@ -30,7 +30,7 @@ const setupJsLinting = async (project_type) => {
   }
 };
 
-const setupReactJsLinting = async (project_type) => {
+const setupReactJsLinting = async (project_type: string) => {
   const spinner = createSpinner(
     `Your ${chalk.blueBright('React')} ${chalk.magentaBright('linting')} is being configured. 🦜 Parrot!`,
   ).start();
@@ -55,7 +55,7 @@ const setupReactJsLinting = async (project_type) => {
   }
 };
 
-const setupTsLinting = async (project_type) => {
+const setupTsLinting = async (project_type: string) => {
   const spinner = createSpinner(
     `Your ${chalk.blue('TypeScript')} ${chalk.magentaBright('linting')} is being configured. 🦜 Parrot!`,
   ).start();
@@ -82,7 +82,7 @@ const setupTsLinting = async (project_type) => {
   }
 };
 
-const setupLinting = async (linting, project_type) => {
+const setupLinting = async (linting: string, project_type: string) => {
   switch (linting) {
     case 'Yes':
       if (project_type === 'JavaScript') {

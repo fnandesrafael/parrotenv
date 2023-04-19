@@ -20,5 +20,6 @@
     "prettier"
   ],
   "rules": {
+    "import/extensions": "never"
   }
 }

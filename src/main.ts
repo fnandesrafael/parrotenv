@@ -8,6 +8,7 @@ import questions from './data/questions.js';
 import {
   verifyNode, setupBuildTool, setupLinting, setupEditor,
 } from './modules/index.js';
+import Answers from './interfaces/Answers.js';
 
 const setupParrot = async () => {
   const spinner = createSpinner(
@@ -26,7 +27,7 @@ const setupParrot = async () => {
   }
 };
 
-const initEnv = async (answers) => {
+const initEnv = async (answers: Answers) => {
   await setupBuildTool(answers.build_tool, answers.project_type);
   await setupLinting(answers.linting, answers.project_type);
   await setupEditor(answers.ide);
@@ -36,7 +37,7 @@ const main = async () => {
   const answers = await inquirer.prompt(questions);
   const stripedAnswers = stripAnswers(answers);
 
-  const hasInit = await verifyNode(stripedAnswers.npm_init);
+  const hasInit: boolean = await verifyNode(stripedAnswers.npm_init);
 
   if (hasInit) {
     await setupParrot();

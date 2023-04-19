@@ -37,7 +37,7 @@ const writeTsEslintrc = async () => {
   await fs.copy(filePath, path.resolve(projectRoot, '.eslintrc.json'));
 };
 
-const writeEslintrc = async (project_type) => {
+const writeEslintrc = async (project_type: string) => {
   switch (project_type) {
     case 'JavaScript':
       await writeJsEslintrc();

@@ -1,4 +1,4 @@
-const verifyNode = async (hasInit) => {
+const verifyNode = async (hasInit: string): Promise<boolean> => {
   switch (hasInit) {
     case 'Yes':
       return true;

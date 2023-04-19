@@ -25,7 +25,7 @@ const setupVsCode = async () => {
   }
 };
 
-const setupEditor = async (editor) => {
+const setupEditor = async (editor: string) => {
   switch (editor) {
     case 'VS Code':
       await setupVsCode();

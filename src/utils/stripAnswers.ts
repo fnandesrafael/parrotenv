@@ -7,7 +7,7 @@ const stripedAnswers = {
   project_type: '',
   linting: '',
   ide: '',
-  styling: '',
+  styling_type: '',
 };
 
 const stripAnswers = (obj: Answer): Answers => {

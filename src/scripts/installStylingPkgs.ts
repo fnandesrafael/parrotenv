@@ -1,14 +1,14 @@
 import { exec } from 'child_process';
 import util from 'util';
 
-const installVanillaStylingPkgs = async () => {
+const installSassStylingPkgs = async () => {
   await util.promisify(exec)(
-    'npm i stylelint stylelint-config-standard stylelint-order -D',
+    'npm i stylelint stylelint-config-standard stylelint-order sass -D',
     { cwd: './mock' },
   );
 };
 
-const installReactStylingPkgs = async () => {
+const installStyledComponentsStylingPkgs = async () => {
   await util.promisify(exec)(
     'npm i stylelint stylelint-config-standard stylelint-order styled-components postcss-styled-components -D',
     { cwd: './mock' },
@@ -17,12 +17,15 @@ const installReactStylingPkgs = async () => {
 
 const installStylingPkgs = async (project_type: string) => {
   switch (project_type) {
-    case ('React w/ JavaScript'):
-      installReactStylingPkgs();
+    case ('Sass'):
+      await installSassStylingPkgs();
+      break;
+
+    case ('Styled Components'):
+      await installStyledComponentsStylingPkgs();
       break;
 
     default:
-      installVanillaStylingPkgs();
       break;
   }
 };

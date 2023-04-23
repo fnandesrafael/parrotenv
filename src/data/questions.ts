@@ -10,9 +10,10 @@ const questions = [
   {
     name: 'build_tool',
     type: 'list',
-    message: '🛠️  Which build tool have you used to create this project?',
+    message: '🛠️  Which build tool have you used to bootstrap this project?',
     choices: [
       chalk.yellow('Vite'),
+      'Next',
       'N/A',
     ],
   },
@@ -24,6 +25,7 @@ const questions = [
       chalk.yellow('JavaScript'),
       `React w/ ${chalk.yellow('JavaScript')}`,
       chalk.blue('TypeScript'),
+      `React w/ ${chalk.blue('TypeScript')}`,
     ],
   },
   {
@@ -42,10 +44,10 @@ const questions = [
     ],
   },
   {
-    name: 'styling',
+    name: 'styling_type',
     type: 'list',
-    message: `🎨 Perchance your'e planning on writing any ${chalk.blue('CSS')}, would you like to set up a standard linting configuration with ${chalk.magentaBright('Stylelint')}?`,
-    choices: ['Yes', 'No'],
+    message: `🎨 Perchance your'e planning on writing any ${chalk.blue('CSS')}, which frameworkd/preprocessor/library do you want to set up with a standard ${chalk.magentaBright('Stylelint')}configuration?`,
+    choices: [chalk.magentaBright('Sass'), chalk.magenta('Styled Components'), 'N/A'],
   },
 ];
 

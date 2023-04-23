@@ -2,18 +2,18 @@ import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
 import { installStylingPkgs, writeStylelintrc } from '../scripts/index.js';
 
-const setupVanillaStylint = async (project_type: string) => {
+const setupSassStyling = async (styling_type: string) => {
   const spinner = createSpinner(
     `Your ${chalk.magentaBright('Styling')} settings are being configured. 🦜 Parrot!`,
   ).start();
 
   try {
-    await installStylingPkgs(project_type);
-    await writeStylelintrc(project_type);
+    await installStylingPkgs(styling_type);
+    await writeStylelintrc(styling_type);
 
     spinner.success({
-      text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.magentaBright('Styling')} settings have been configured sucessfully.`)}
-      ${chalk.greenBright('+')} The following packages have been added to your project devDependencies: ${chalk.gray('stylelint stylelint-config-standard stylelint-order')}
+      text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.magentaBright('Linting')} settings have been configured sucessfully.`)}
+      ${chalk.greenBright('+')} The following packages have been added to your project devDependencies: ${chalk.gray('stylelint stylelint-config-standard stylelint-order sass')}
       ${chalk.greenBright('+')} ".stylelintrc.json" file was generated.`,
     });
   } catch (e) {
@@ -25,17 +25,17 @@ const setupVanillaStylint = async (project_type: string) => {
   }
 };
 
-const setupReactStylint = async (project_type: string) => {
+const setupStyledComponentsStyling = async (styling_type: string) => {
   const spinner = createSpinner(
     `Your ${chalk.magentaBright('Styling')} settings are being configured. 🦜 Parrot!`,
   ).start();
 
   try {
-    await installStylingPkgs(project_type);
-    await writeStylelintrc(project_type);
+    await installStylingPkgs(styling_type);
+    await writeStylelintrc(styling_type);
 
     spinner.success({
-      text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.magentaBright('Styling')} settings have been configured sucessfully.`)}
+      text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.magentaBright('Linting')} settings have been configured sucessfully.`)}
       ${chalk.greenBright('+')} The following packages have been added to your project devDependencies: ${chalk.gray('stylelint stylelint-config-standard stylelint-order styled-components postcss-styled-components')}
       ${chalk.greenBright('+')} ".stylelintrc.json" file was generated.`,
     });
@@ -48,16 +48,15 @@ const setupReactStylint = async (project_type: string) => {
   }
 };
 
-const setupStylint = async (styling: string, project_type: string) => {
-  switch (styling) {
-    case 'Yes':
-      if (project_type === 'React w/ JavaScript') {
-        await setupReactStylint(project_type);
-      } else {
-        await setupVanillaStylint(project_type);
-      }
+const setupStylint = async (styling_type: string) => {
+  switch (styling_type) {
+    case 'Sass':
+      await setupSassStyling(styling_type);
       break;
 
+    case 'Styled Components':
+      await setupStyledComponentsStyling(styling_type);
+      break;
     default:
       break;
   }

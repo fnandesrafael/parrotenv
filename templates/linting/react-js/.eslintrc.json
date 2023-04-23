@@ -19,7 +19,13 @@
     "react",
     "prettier"
   ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"]
+      }
+    }
+  },
   "rules": {
-    "import/extensions": "never"
   }
 }

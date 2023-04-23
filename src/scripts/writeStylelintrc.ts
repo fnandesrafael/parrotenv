@@ -1,38 +1,41 @@
 import path from 'path';
 import fs from 'fs-extra';
 
-const writeVanillaStylelintrc = async () => {
+const writeSassStylelintrc = async () => {
   const projectRoot = path.resolve(process.cwd(), 'mock');
   /**
    * const filePath = path.resolve(
-   *  projectRoot, './node_modules/parrotenv/templates/javascript/.stylelintrc.json'
+   *  projectRoot, './node_modules/parrotenv/templates/styling/scss/.stylelintrc.json'
    * );
    */
-  const filePath = path.resolve(projectRoot, '../templates/javascript/.stylelintrc.json');
+  const filePath = path.resolve(projectRoot, '../templates/styling/scss/.stylelintrc.json');
 
   await fs.copy(filePath, path.resolve(projectRoot, '.stylelintrc.json'));
 };
 
-const writeReactStylelintrc = async () => {
+const writeStyledComponentsStylelintrc = async () => {
   const projectRoot = path.resolve(process.cwd(), 'mock');
   /**
    * const filePath = path.resolve(
-   *  projectRoot, './node_modules/parrotenv/templates/react-js/.stylelintrc.json'
+   *  projectRoot, './node_modules/parrotenv/templates/styling/styled-components/.stylelintrc.json'
    * );
    */
-  const filePath = path.resolve(projectRoot, '../templates/react-js/.stylelintrc.json');
+  const filePath = path.resolve(projectRoot, '../templates/styling/styled-components/.stylelintrc.json');
 
   await fs.copy(filePath, path.resolve(projectRoot, '.stylelintrc.json'));
 };
 
-const writeStylelintrc = async (project_type: string) => {
-  switch (project_type) {
-    case 'React w/ JavaScript':
-      writeReactStylelintrc();
+const writeStylelintrc = async (styling_type: string) => {
+  switch (styling_type) {
+    case 'Sass':
+      await writeSassStylelintrc();
+      break;
+
+    case 'Styled Components':
+      await writeStyledComponentsStylelintrc();
       break;
 
     default:
-      writeVanillaStylelintrc();
       break;
   }
 };

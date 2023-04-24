@@ -13,7 +13,7 @@ const writeCssStylelintrc = async () => {
   await fs.copy(filePath, path.resolve(projectRoot, '.stylelintrc.json'));
 };
 
-const writeSassStylelintrc = async () => {
+const writeScssStylelintrc = async () => {
   const projectRoot = path.resolve(process.cwd(), 'mock');
   /**
    * const filePath = path.resolve(
@@ -39,16 +39,16 @@ const writeStyledComponentsStylelintrc = async () => {
 
 const writeStylelintrc = async (styling_type: string) => {
   switch (styling_type) {
+    case 'CSS':
+      await writeCssStylelintrc();
+      break;
+
     case 'SCSS':
-      await writeSassStylelintrc();
+      await writeScssStylelintrc();
       break;
 
     case 'Styled Components':
       await writeStyledComponentsStylelintrc();
-      break;
-
-    case 'CSS':
-      await writeCssStylelintrc();
       break;
 
     default:

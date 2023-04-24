@@ -47,7 +47,7 @@ const questions = [
     name: 'styling_type',
     type: 'list',
     message: `🎨 Perchance your'e planning on writing any ${chalk.blue('CSS')}, which frameworkd/preprocessor/library do you want to set up with a standard ${chalk.magentaBright('Stylelint')}configuration?`,
-    choices: [chalk.magentaBright('Sass'), chalk.magenta('Styled Components'), 'N/A'],
+    choices: [chalk.magentaBright('Scss'), chalk.magenta('Styled Components'), 'N/A'],
   },
 ];
 

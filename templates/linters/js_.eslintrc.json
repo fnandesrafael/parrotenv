@@ -7,8 +7,6 @@
     "airbnb-base",
     "plugin:prettier/recommended"
   ],
-  "overrides": [
-  ],
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"
@@ -22,5 +20,6 @@
     }
   },
   "rules": {
+    "newline-per-chained-call": ["error", { "ignoreChainWithDepth": 2 }]
   }
 }

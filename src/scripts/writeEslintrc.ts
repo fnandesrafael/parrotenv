@@ -43,7 +43,7 @@ const writeEslintrc = async (project_type: string) => {
       await writeJsEslintrc();
       break;
 
-    case 'React w/ JavaScript':
+    case 'React + JavaScript':
       await writeReactJsEslintrc();
       break;
 

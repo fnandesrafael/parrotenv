@@ -22,18 +22,29 @@ const installTsLintingPkgs = async () => {
   );
 };
 
+const installReactTsLintingPkgs = async () => {
+  await util.promisify(exec)(
+    'npm i eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y typescript @typescript-eslint/eslint-plugin @typescript-eslint/parser @types/node eslint eslint-config-airbnb-base eslint-config-airbnb-typescript eslint-plugin-import prettier eslint-config-prettier eslint-plugin-prettier -D',
+    { cwd: './mock' },
+  );
+};
+
 const installLintingPkgs = async (ecosystem: string) => {
   switch (ecosystem) {
-    case 'TypeScript':
-      await installTsLintingPkgs();
+    case 'JavaScript':
+      await installJsLintingPkgs();
       break;
 
     case 'React w/ JavaScript':
       await installReactJsLintingPkgs();
       break;
 
-    case 'JavaScript':
-      await installJsLintingPkgs();
+    case 'TypeScript':
+      await installTsLintingPkgs();
+      break;
+
+    case 'React w/ TypeScript':
+      await installReactTsLintingPkgs();
       break;
 
     default:

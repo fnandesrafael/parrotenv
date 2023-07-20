@@ -1,9 +1,9 @@
 import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
-import installLintingPkgs from '../scripts/installLintingPkgs.js';
-import writeEslintrc from '../scripts/writeEslintrc.js';
-import writePrettierrc from '../scripts/writePrettierrc.js';
-import writeTsConfig from '../scripts/writeTsConfig.js';
+import installLintingPkgs from '../functions/installLintingPkgs.js';
+import writeEslintrc from '../functions/writeEslintrc.js';
+import writePrettierrc from '../functions/writePrettierrc.js';
+import writeTsConfig from '../functions/writeTsConfig.js';
 
 const setupJsLinting = async (ecosystem: string) => {
   const spinner = createSpinner(

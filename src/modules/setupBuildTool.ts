@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
-import writeViteConfig from '../scripts/writeViteConfig.js';
+import writeViteConfig from '../functions/writeViteConfig.js';
 
 const setupViteForReactJs = async () => {
   const spinner = createSpinner(

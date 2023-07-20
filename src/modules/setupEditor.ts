@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
-import { writeEditorConfig, writeEditorSettings } from '../scripts/index.js';
+import { writeEditorConfig, writeEditorSettings } from '../functions/index.js';
 
 const setupVsCode = async () => {
   const spinner = createSpinner(

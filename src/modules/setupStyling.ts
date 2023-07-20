@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
-import { installStylingPkgs, writeStylelintrc } from '../scripts/index.js';
+import { installStylingPkgs, writeStylelintrc } from '../functions/index.js';
 
 const setupCssStyling = async (styling: string) => {
   const spinner = createSpinner(

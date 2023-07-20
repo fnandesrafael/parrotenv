@@ -29,8 +29,8 @@ const setupParrot = async () => {
 };
 
 const initEnvSetup = async (answers: Answers) => {
-  await setupBuildTool(answers.framework, answers.project);
-  await setupLinting(answers.linting, answers.project);
+  await setupBuildTool(answers.framework, answers.ecosystem);
+  await setupLinting(answers.linting, answers.ecosystem);
   await setupEditor(answers.ide);
   await setupStylint(answers.styling);
 };

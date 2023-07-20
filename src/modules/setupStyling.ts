@@ -71,21 +71,22 @@ const setupStyledComponentsStyling = async (styling: string) => {
   }
 };
 
-const setupStylint = async (styling: string) => {
-  switch (styling) {
-    case 'CSS':
-      await setupCssStyling(styling);
-      break;
+const setupStylint = async (styling: object) => {
+  // switch (styling) {
+  //   case 'CSS':
+  //     await setupCssStyling(styling);
+  //     break;
 
-    case 'SCSS':
-      await setupScssStyling(styling);
-      break;
+  //   case 'SCSS':
+  //     await setupScssStyling(styling);
+  //     break;
 
-    case 'Styled Components':
-      await setupStyledComponentsStyling(styling);
-      break;
-    default:
-      break;
-  }
+  //   case 'Styled Components':
+  //     await setupStyledComponentsStyling(styling);
+  //     break;
+  //   default:
+  //     break;
+  // }
+  console.log(styling);
 };
 export default setupStylint;

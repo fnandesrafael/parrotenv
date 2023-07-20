@@ -1,5 +1,5 @@
 type Answer = {
-  [key: string]: string
+  [key: string]: string | Array<string>
 };
 
 export default Answer;

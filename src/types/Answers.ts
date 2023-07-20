@@ -4,7 +4,7 @@ type Answers = {
   ecosystem: string,
   linting: string,
   ide: string,
-  styling: string
+  styling: Array<string>
 };
 
 export default Answers;

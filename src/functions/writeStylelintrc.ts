@@ -37,8 +37,8 @@ const writeStyledComponentsStylelintrc = async () => {
   await fs.copy(filePath, path.resolve(projectRoot, '.stylelintrc.json'));
 };
 
-const writeStylelintrc = async (styling_type: string) => {
-  switch (styling_type) {
+const writeStylelintrc = async (styling: string) => {
+  switch (styling) {
     case 'CSS':
       await writeCssStylelintrc();
       break;

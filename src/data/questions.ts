@@ -24,9 +24,9 @@ const questions: Array<Question> = [
     message: `🍧 What type of ${chalk.yellow('JavaScript')} project are you aiming for?`,
     choices: [
       chalk.yellow('JavaScript'),
-      `React + ${chalk.yellow('JavaScript')}`,
+      `React w/ ${chalk.yellow('JavaScript')}`,
       chalk.blue('TypeScript'),
-      `React + ${chalk.blue('TypeScript')}`,
+      `React w/ ${chalk.blue('TypeScript')}`,
       chalk.grey('N/A'),
     ],
   },

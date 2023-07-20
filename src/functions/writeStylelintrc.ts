@@ -37,6 +37,19 @@ const writeStyledComponentsStylelintrc = async () => {
   await fs.copy(filePath, path.resolve(projectRoot, '.stylelintrc.json'));
 };
 
+const writeScssStyledComponentsStylelintrc = async () => {
+  const projectRoot = path.resolve(process.cwd(), 'mock');
+  /**
+   * const filePath = path.resolve(
+   *  projectRoot,
+   * './node_modules/parrotenv/templates/linters/scss-styled-components/.stylelintrc.json'
+   * );
+   */
+  const filePath = path.resolve(projectRoot, '../templates/linters/scss-styled-components/.stylelintrc.json');
+
+  await fs.copy(filePath, path.resolve(projectRoot, '.stylelintrc.json'));
+};
+
 const writeStylelintrc = async (styling: string) => {
   switch (styling) {
     case 'CSS':
@@ -49,6 +62,10 @@ const writeStylelintrc = async (styling: string) => {
 
     case 'Styled Components':
       await writeStyledComponentsStylelintrc();
+      break;
+
+    case 'SCSS + Styled Components':
+      await writeScssStyledComponentsStylelintrc();
       break;
 
     default:

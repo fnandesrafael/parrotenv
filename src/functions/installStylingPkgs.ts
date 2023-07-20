@@ -22,6 +22,13 @@ const installStyledComponentsStylingPkgs = async () => {
   );
 };
 
+const installScssStyledComponentsStylingPkgs = async () => {
+  await util.promisify(exec)(
+    'npm i stylelint stylelint-config-standard stylelint-order sass postcss-scss styled-components postcss-styled-components -D',
+    { cwd: './mock' },
+  );
+};
+
 const installStylingPkgs = async (ecosystem: string) => {
   switch (ecosystem) {
     case 'CSS':
@@ -34,6 +41,10 @@ const installStylingPkgs = async (ecosystem: string) => {
 
     case 'Styled Components':
       await installStyledComponentsStylingPkgs();
+      break;
+
+    case 'SCSS + Styled Components':
+      await installScssStyledComponentsStylingPkgs();
       break;
 
     default:

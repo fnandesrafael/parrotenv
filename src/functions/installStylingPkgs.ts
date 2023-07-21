@@ -22,8 +22,8 @@ const installStyledComponentsStylingPkgs = async () => {
   );
 };
 
-const installStylingPkgs = async (project_type: string) => {
-  switch (project_type) {
+const installStylingPkgs = async (ecosystem: string) => {
+  switch (ecosystem) {
     case 'CSS':
       await installCssStylingPkgs();
       break;

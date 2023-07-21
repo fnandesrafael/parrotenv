@@ -5,10 +5,10 @@ const writeJsEslintrc = async () => {
   const projectRoot = path.resolve(process.cwd(), 'mock');
   /**
    * const filePath = path.resolve(
-   *  projectRoot, './node_modules/parrotenv/templates/linters/js_.eslintrc.json'
+   *  projectRoot, './node_modules/parrotenv/templates/linters/javascript/.eslintrc.json'
    * );
    */
-  const filePath = path.resolve(projectRoot, '../templates/linters/js_.eslintrc.json');
+  const filePath = path.resolve(projectRoot, '../templates/linters/javascript/.eslintrc.json');
 
   await fs.copy(filePath, path.resolve(projectRoot, '.eslintrc.json'));
 };
@@ -17,10 +17,10 @@ const writeReactJsEslintrc = async () => {
   const projectRoot = path.resolve(process.cwd(), 'mock');
   /**
    * const filePath = path.resolve(
-   *  projectRoot, './node_modules/parrotenv/templates/linters/react_js_.eslintrc.json'
+   *  projectRoot, './node_modules/parrotenv/templates/linters/react-js/.eslintrc.json'
    * );
    */
-  const filePath = path.resolve(projectRoot, '../templates/linters/react_js_.eslintrc.json');
+  const filePath = path.resolve(projectRoot, '../templates/linters/react-js/.eslintrc.json');
 
   await fs.copy(filePath, path.resolve(projectRoot, '.eslintrc.json'));
 };
@@ -29,21 +29,21 @@ const writeTsEslintrc = async () => {
   const projectRoot = path.resolve(process.cwd(), 'mock');
   /**
    * const filePath = path.resolve(
-   *  projectRoot, './node_modules/parrotenv/templates/linters/ts_.eslintrc.json'
+   *  projectRoot, './node_modules/parrotenv/templates/linters/typescript/.eslintrc.json'
    * );
    */
-  const filePath = path.resolve(projectRoot, '../templates/linters/ts_.eslintrc.json');
+  const filePath = path.resolve(projectRoot, '../templates/linters/typescript/.eslintrc.json');
 
   await fs.copy(filePath, path.resolve(projectRoot, '.eslintrc.json'));
 };
 
-const writeEslintrc = async (project_type: string) => {
-  switch (project_type) {
+const writeEslintrc = async (ecosystem: string) => {
+  switch (ecosystem) {
     case 'JavaScript':
       await writeJsEslintrc();
       break;
 
-    case 'React w/ JavaScript':
+    case 'React + JavaScript':
       await writeReactJsEslintrc();
       break;
 

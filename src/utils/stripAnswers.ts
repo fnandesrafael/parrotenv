@@ -1,16 +1,16 @@
 import stripAnsi from 'strip-ansi';
-import { Answers, Answer } from '../interfaces/index.js';
-
-const stripedAnswers = {
-  npm_init: '',
-  build_tool: '',
-  project_type: '',
-  linting: '',
-  ide: '',
-  styling_type: '',
-};
+import { Answers, Answer } from '../types/index.js';
 
 const stripAnswers = (obj: Answer): Answers => {
+  const stripedAnswers: Answers = {
+    node: '',
+    framework: '',
+    ecosystem: '',
+    linting: '',
+    ide: '',
+    styling: '',
+  };
+
   Object.entries(obj).forEach((answer) => {
     const [key, value] = answer;
 

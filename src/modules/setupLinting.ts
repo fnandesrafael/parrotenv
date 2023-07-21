@@ -1,19 +1,19 @@
 import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
-import installLintingPkgs from '../scripts/installLintingPkgs.js';
-import writeEslintrc from '../scripts/writeEslintrc.js';
-import writePrettierrc from '../scripts/writePrettierrc.js';
-import writeTsConfig from '../scripts/writeTsConfig.js';
+import installLintingPkgs from '../functions/installLintingPkgs.js';
+import writeEslintrc from '../functions/writeEslintrc.js';
+import writePrettierrc from '../functions/writePrettierrc.js';
+import writeTsConfig from '../functions/writeTsConfig.js';
 
-const setupJsLinting = async (project_type: string) => {
+const setupJsLinting = async (ecosystem: string) => {
   const spinner = createSpinner(
     `Your ${chalk.magentaBright('Linting')} settings are being configured. 🦜 Parrot!`,
   ).start();
 
   try {
-    await installLintingPkgs(project_type);
+    await installLintingPkgs(ecosystem);
     await writePrettierrc();
-    await writeEslintrc(project_type);
+    await writeEslintrc(ecosystem);
 
     spinner.success({
       text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.magentaBright('Linting')} settings have been configured sucessfully.`)}
@@ -30,15 +30,15 @@ const setupJsLinting = async (project_type: string) => {
   }
 };
 
-const setupReactJsLinting = async (project_type: string) => {
+const setupReactJsLinting = async (ecosystem: string) => {
   const spinner = createSpinner(
     `Your ${chalk.magentaBright('Linting')} settings are being configured. 🦜 Parrot!`,
   ).start();
 
   try {
-    await installLintingPkgs(project_type);
+    await installLintingPkgs(ecosystem);
     await writePrettierrc();
-    await writeEslintrc(project_type);
+    await writeEslintrc(ecosystem);
 
     spinner.success({
       text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.magentaBright('Linting')} settings have been configured sucessfully.`)}
@@ -55,15 +55,15 @@ const setupReactJsLinting = async (project_type: string) => {
   }
 };
 
-const setupTsLinting = async (project_type: string) => {
+const setupTsLinting = async (ecosystem: string) => {
   const spinner = createSpinner(
     `Your ${chalk.magentaBright('Linting')} settings are being configured. 🦜 Parrot!`,
   ).start();
 
   try {
-    await installLintingPkgs(project_type);
+    await installLintingPkgs(ecosystem);
     await writePrettierrc();
-    await writeEslintrc(project_type);
+    await writeEslintrc(ecosystem);
     await writeTsConfig();
 
     spinner.success({
@@ -82,15 +82,15 @@ const setupTsLinting = async (project_type: string) => {
   }
 };
 
-const setupLinting = async (linting: string, project_type: string) => {
+const setupLinting = async (linting: string, ecosystem: string) => {
   switch (linting) {
     case 'Yes':
-      if (project_type === 'JavaScript') {
-        await setupJsLinting(project_type);
-      } else if (project_type === 'React w/ JavaScript') {
-        await setupReactJsLinting(project_type);
-      } else if (project_type === 'TypeScript') {
-        await setupTsLinting(project_type);
+      if (ecosystem === 'JavaScript') {
+        await setupJsLinting(ecosystem);
+      } else if (ecosystem === 'React w/ JavaScript') {
+        await setupReactJsLinting(ecosystem);
+      } else if (ecosystem === 'TypeScript') {
+        await setupTsLinting(ecosystem);
       }
       break;
 

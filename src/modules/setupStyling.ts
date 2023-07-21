@@ -1,15 +1,15 @@
 import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
-import { installStylingPkgs, writeStylelintrc } from '../scripts/index.js';
+import { installStylingPkgs, writeStylelintrc } from '../functions/index.js';
 
-const setupCssStyling = async (styling_type: string) => {
+const setupCssStyling = async (styling: string) => {
   const spinner = createSpinner(
     `Your ${chalk.magentaBright('Styling')} settings are being configured. 🦜 Parrot!`,
   ).start();
 
   try {
-    await installStylingPkgs(styling_type);
-    await writeStylelintrc(styling_type);
+    await installStylingPkgs(styling);
+    await writeStylelintrc(styling);
 
     spinner.success({
       text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.magentaBright('Linting')} settings have been configured sucessfully.`)}
@@ -25,14 +25,14 @@ const setupCssStyling = async (styling_type: string) => {
   }
 };
 
-const setupScssStyling = async (styling_type: string) => {
+const setupScssStyling = async (styling: string) => {
   const spinner = createSpinner(
     `Your ${chalk.magentaBright('Styling')} settings are being configured. 🦜 Parrot!`,
   ).start();
 
   try {
-    await installStylingPkgs(styling_type);
-    await writeStylelintrc(styling_type);
+    await installStylingPkgs(styling);
+    await writeStylelintrc(styling);
 
     spinner.success({
       text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.magentaBright('Linting')} settings have been configured sucessfully.`)}
@@ -48,14 +48,14 @@ const setupScssStyling = async (styling_type: string) => {
   }
 };
 
-const setupStyledComponentsStyling = async (styling_type: string) => {
+const setupStyledComponentsStyling = async (styling: string) => {
   const spinner = createSpinner(
     `Your ${chalk.magentaBright('Styling')} settings are being configured. 🦜 Parrot!`,
   ).start();
 
   try {
-    await installStylingPkgs(styling_type);
-    await writeStylelintrc(styling_type);
+    await installStylingPkgs(styling);
+    await writeStylelintrc(styling);
 
     spinner.success({
       text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.magentaBright('Linting')} settings have been configured sucessfully.`)}
@@ -71,18 +71,18 @@ const setupStyledComponentsStyling = async (styling_type: string) => {
   }
 };
 
-const setupStylint = async (styling_type: string) => {
-  switch (styling_type) {
+const setupStylint = async (styling: string) => {
+  switch (styling) {
     case 'CSS':
-      await setupCssStyling(styling_type);
+      await setupCssStyling(styling);
       break;
 
     case 'SCSS':
-      await setupScssStyling(styling_type);
+      await setupScssStyling(styling);
       break;
 
     case 'Styled Components':
-      await setupStyledComponentsStyling(styling_type);
+      await setupStyledComponentsStyling(styling);
       break;
     default:
       break;

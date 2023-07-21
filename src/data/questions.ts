@@ -1,31 +1,33 @@
 import chalk from 'chalk';
+import Question from '../types/Question.js';
 
-const questions = [
+const questions: Array<Question> = [
   {
-    name: 'npm_init',
+    name: 'node',
     type: 'list',
     message: `🤔 Have you already initialized a ${chalk.greenBright('node')} project?`,
     choices: ['Yes', 'No'],
   },
   {
-    name: 'build_tool',
+    name: 'framework',
     type: 'list',
     message: '🛠️  Which build tool have you used to bootstrap this project?',
     choices: [
       chalk.yellow('Vite'),
       'Next',
-      'N/A',
+      chalk.grey('N/A'),
     ],
   },
   {
-    name: 'project_type',
+    name: 'ecosystem',
     type: 'list',
-    message: `🍧 What type of ${chalk.yellow('JavaScript')} project are you developing?`,
+    message: `🍧 What type of ${chalk.yellow('JavaScript')} project are you aiming for?`,
     choices: [
       chalk.yellow('JavaScript'),
-      `React w/ ${chalk.yellow('JavaScript')}`,
+      `React + ${chalk.yellow('JavaScript')}`,
       chalk.blue('TypeScript'),
-      `React w/ ${chalk.blue('TypeScript')}`,
+      `React + ${chalk.blue('TypeScript')}`,
+      chalk.grey('N/A'),
     ],
   },
   {
@@ -40,14 +42,19 @@ const questions = [
     message: '💻 Which code editor are you using for this project?',
     choices: [
       chalk.blueBright('VS Code'),
-      'N/A',
+      chalk.grey('N/A'),
     ],
   },
   {
-    name: 'styling_type',
+    name: 'styling',
     type: 'list',
     message: `🎨 Perchance your'e planning on writing any ${chalk.blue('CSS')}, which frameworkd/preprocessor/library do you want to set up with a standard ${chalk.magentaBright('Stylelint')} configuration?`,
-    choices: [chalk.blue('CSS'), chalk.magentaBright('SCSS'), chalk.magenta('Styled Components'), 'N/A']
+    choices: [
+      chalk.blue('CSS'),
+      chalk.magentaBright('SCSS'),
+      chalk.magenta('Styled Components'),
+      chalk.grey('N/A'),
+    ],
   },
 ];
 

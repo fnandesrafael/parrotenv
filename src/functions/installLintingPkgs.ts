@@ -22,8 +22,8 @@ const installTsLintingPkgs = async () => {
   );
 };
 
-const installLintingPkgs = async (project_type: string) => {
-  switch (project_type) {
+const installLintingPkgs = async (ecosystem: string) => {
+  switch (ecosystem) {
     case 'TypeScript':
       await installTsLintingPkgs();
       break;

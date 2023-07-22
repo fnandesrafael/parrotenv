@@ -4,8 +4,9 @@
     "es2022": true
   },
   "extends": [
-    "plugin:react/recommended",
     "airbnb-base",
+    "airbnb-typescript/base",
+    "plugin:react-hooks/recommended",
     "plugin:prettier/recommended"
   ],
   "parserOptions": {

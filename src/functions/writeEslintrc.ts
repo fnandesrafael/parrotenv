@@ -37,18 +37,34 @@ const writeTsEslintrc = async () => {
   await fs.copy(filePath, path.resolve(projectRoot, '.eslintrc.json'));
 };
 
+const writeReactTsEslintrc = async () => {
+  const projectRoot = path.resolve(process.cwd(), 'mock');
+  /**
+   * const filePath = path.resolve(
+   *  projectRoot, './node_modules/parrotenv/templates/linters/react-ts/.eslintrc.json'
+   * );
+   */
+  const filePath = path.resolve(projectRoot, '../templates/linters/react-ts/.eslintrc.json');
+
+  await fs.copy(filePath, path.resolve(projectRoot, '.eslintrc.json'));
+};
+
 const writeEslintrc = async (ecosystem: string) => {
   switch (ecosystem) {
     case 'JavaScript':
       await writeJsEslintrc();
       break;
 
-    case 'React + JavaScript':
+    case 'React w/ JavaScript':
       await writeReactJsEslintrc();
       break;
 
     case 'TypeScript':
       await writeTsEslintrc();
+      break;
+
+    case 'React w/ TypeScript':
+      await writeReactTsEslintrc();
       break;
 
     default:

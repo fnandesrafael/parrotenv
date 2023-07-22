@@ -1,0 +1,18 @@
+{
+  "plugins": ["stylelint-order"],
+  "extends": ["stylelint-config-standard"],
+  "customSyntax": "postcss-scss",
+  "overrides": [
+    {
+      "files": ["**/*.styles.jsx"],
+      "customSyntax": "postcss-styled-components"
+    }
+  ],
+  "rules": {
+    "order/properties-alphabetical-order": true,
+    "value-keyword-case": ["lower", {"ignoreKeywords": ["/^POSTCSS.*/"]}],
+        "import-notation": "string"
+
+  }
+}
+

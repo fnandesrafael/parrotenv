@@ -8,13 +8,17 @@ const stripAnswers = (obj: Answer): Answers => {
     ecosystem: '',
     linting: '',
     ide: '',
-    styling: '',
+    styling: null,
   };
 
   Object.entries(obj).forEach((answer) => {
     const [key, value] = answer;
 
-    stripedAnswers[key] = stripAnsi(value);
+    if (typeof value === 'string') {
+      stripedAnswers[key] = stripAnsi(value);
+    } else if (Array.isArray(value)) {
+      stripedAnswers[key] = value.map((item) => stripAnsi(item));
+    }
   });
 
   return stripedAnswers;

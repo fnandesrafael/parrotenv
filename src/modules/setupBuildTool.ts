@@ -2,13 +2,13 @@ import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
 import writeViteConfig from '../functions/writeViteConfig.js';
 
-const setupViteForReactJs = async () => {
+const setupViteForReact = async (extension: string) => {
   const spinner = createSpinner(
     `Your ${chalk.yellow('Vite')} is being configured. 🦜 Parrot! `,
   ).start();
 
   try {
-    await writeViteConfig();
+    await writeViteConfig(extension);
 
     spinner.success({
       text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.yellow('Vite')} settings have been configured successfully.`)}
@@ -27,7 +27,9 @@ const setupBuildTool = async (framework: string, ecosystem: string) => {
   switch (framework) {
     case 'Vite':
       if (ecosystem === 'React w/ JavaScript') {
-        await setupViteForReactJs();
+        await setupViteForReact('.js');
+      } else if (ecosystem === 'React w/ TypeScript') {
+        await setupViteForReact('.ts');
       }
       break;
 

@@ -6,6 +6,8 @@
   "extends": [
     "airbnb-base",
     "airbnb-typescript/base",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
     "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
@@ -20,7 +22,6 @@
   ],
   "rules": {
     "newline-per-chained-call": ["error", { "ignoreChainWithDepth": 2 }],
-    "import/extensions": ["error", "ignorePackages", { "js": "never" }],
     "no-promise-executor-return": "off"
   }
 }

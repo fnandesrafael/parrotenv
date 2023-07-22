@@ -10,7 +10,7 @@ const writeViteConfig = async (extension: string) => {
    */
   const filePath = path.resolve(projectRoot, '../templates/settings/vite/vite.config.js');
 
-  await fs.copy(filePath, path.resolve(projectRoot, `vite.config.${extension}`));
+  await fs.copy(filePath, path.resolve(projectRoot, `vite.config${extension}`));
 };
 
 export default writeViteConfig;

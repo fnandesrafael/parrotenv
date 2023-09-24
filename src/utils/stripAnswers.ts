@@ -7,7 +7,7 @@ const stripAnswers = (obj: AnswerProps): AnswersProps => {
     manager: '',
     tool: '',
     ecosystem: '',
-    linting: '',
+    willLint: '',
     ide: '',
     styling: null,
   };

@@ -6,21 +6,15 @@ type AnswersProps = {
   node: string,
   tool: string,
   ecosystem: string,
-  linting: string,
+  willLint: string,
   ide: string,
   styling: string,
   manager: string
 };
 
-type EcosystemProps = {
-  lintingPkgs: string,
-  eslintrcPath: string,
-  tsconfigPath?: string
-};
-
 type FrameworkProps = {
   dependencies?: string,
-  devDependencies: string,
+  devDependencies?: string,
   configFilePath?: string
 };
 
@@ -37,5 +31,5 @@ type QuestionProps = {
 };
 
 export {
-  AnswerProps, AnswersProps, EcosystemProps, FrameworkProps, QuestionProps, ManagerProps,
+  AnswerProps, AnswersProps, FrameworkProps, QuestionProps, ManagerProps,
 };

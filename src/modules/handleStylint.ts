@@ -27,18 +27,20 @@ const setupStyling = async (framework: FrameworkProps, manager: ManagerProps) =>
   }
 };
 
-const handleStylint = async (styling: string, manager: ManagerProps) => {
-  switch (styling) {
+const handleStylint = async (framework: string, manager: ManagerProps) => {
+  const { styling } = frameworks;
+
+  switch (framework) {
     case 'CSS':
-      await setupStyling(frameworks.css, manager);
+      await setupStyling(styling.css, manager);
       break;
 
     case 'SCSS':
-      await setupStyling(frameworks.scss, manager);
+      await setupStyling(styling.scss, manager);
       break;
 
     case 'Styled Components':
-      await setupStyling(frameworks.styledComponents, manager);
+      await setupStyling(styling.styledComponents, manager);
       break;
 
     default:

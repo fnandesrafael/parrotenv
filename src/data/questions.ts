@@ -15,6 +15,15 @@ const questions: Array<QuestionProps> = [
     choices: ['npm', 'yarn', 'bun'],
   },
   {
+    name: 'ide',
+    type: 'list',
+    message: '💻 Which code editor are you using for this project?',
+    choices: [
+      chalk.blueBright('VS Code'),
+      chalk.grey('N/A'),
+    ],
+  },
+  {
     name: 'tool',
     type: 'list',
     message: '🛠️  Which build tool have you used to bootstrap this project?',
@@ -37,19 +46,10 @@ const questions: Array<QuestionProps> = [
     ],
   },
   {
-    name: 'linting',
+    name: 'willLint',
     type: 'list',
     message: `🧹 Do you want to configure ${chalk.magentaBright('ESLint')} and ${chalk.magentaBright('Prettier')} to lint and format your code?`,
     choices: ['Yes', 'No'],
-  },
-  {
-    name: 'ide',
-    type: 'list',
-    message: '💻 Which code editor are you using for this project?',
-    choices: [
-      chalk.blueBright('VS Code'),
-      chalk.grey('N/A'),
-    ],
   },
   {
     name: 'styling',

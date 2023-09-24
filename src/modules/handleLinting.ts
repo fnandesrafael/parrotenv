@@ -1,32 +1,35 @@
 import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
-import { EcosystemProps, ManagerProps } from '../types/index.js';
-import ecosystems from '../data/ecosystems.js';
-import installLintingPkgs from '../functions/installLintingPkgs.js';
-import writeEslintrc from '../functions/writeEslintrc.js';
-import writePrettierrc from '../functions/writePrettierrc.js';
-import writeTsconfig from '../functions/writeTsConfig.js';
+import { FrameworkProps, ManagerProps } from '../types/index.js';
+import frameworks from '../data/frameworks.js';
+import installDependencies from '../functions/installDependencies.js';
+import writeConfigFile from '../functions/writeConfigFile.js';
 
-const setupLinting = async (ecosystem: EcosystemProps, manager: ManagerProps) => {
+const setupLinting = async (framework: FrameworkProps, manager: ManagerProps, env?: string) => {
   const spinner = createSpinner(
     `Your ${chalk.magentaBright('Linting')} settings are being configured. 🦜 Parrot!`,
   ).start();
 
   try {
-    await installLintingPkgs(ecosystem.linting_pkgs, manager);
-    await writePrettierrc();
-    await writeEslintrc(ecosystem.eslintrc_path);
+    const { lint: { prettier } } = frameworks;
 
-    if (ecosystem.tsconfig_path) {
-      await writeTsconfig(ecosystem.tsconfig_path);
+    await installDependencies(framework, manager);
+    await writeConfigFile(framework.configFilePath);
+    await writeConfigFile(prettier.configFilePath);
+
+    if (env === 'ts') {
+      await writeConfigFile('/config/typescript/tsconfig.json');
+    } else if (env === 'reactTs') {
+      await writeConfigFile('/config/react-ts/tsconfig.json');
     }
 
     spinner.success({
       text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.magentaBright('Linting')} settings have been configured sucessfully.`)}
-      ${chalk.greenBright('+')} The following packages have been added to your project devDependencies: ${chalk.gray(ecosystem.linting_pkgs)}
+      ${chalk.greenBright('+')} The following packages have been added to your project devDependencies: ${chalk.gray(framework.devDependencies)}
       ${chalk.greenBright('+')} ".prettierrc.json" file was generated.
       ${chalk.greenBright('+')} ".eslintrc.json" file was generated.
-      ${ecosystem.tsconfig_path ? `${chalk.greenBright('+')} "tsconfig.json" file was generated.` : null}`,
+      ${env ? (`${chalk.greenBright('+')} "tsconfig.json" file was generated.}`) : null}
+      `,
     });
   } catch (e) {
     spinner.error({
@@ -37,17 +40,19 @@ const setupLinting = async (ecosystem: EcosystemProps, manager: ManagerProps) =>
   }
 };
 
-const handleLinting = async (linting: string, ecosystem: string, manager: ManagerProps) => {
-  switch (linting) {
+const handleLinting = async (willLint: string, ecosystem: string, manager: ManagerProps) => {
+  const { lint: { eslint } } = frameworks;
+
+  switch (willLint) {
     case 'Yes':
       if (ecosystem === 'JavaScript') {
-        await setupLinting(ecosystems.javascript, manager);
+        await setupLinting(eslint.javascript, manager);
       } else if (ecosystem === 'React w/ JavaScript') {
-        await setupLinting(ecosystems.react_js, manager);
+        await setupLinting(eslint.reactJs, manager);
       } else if (ecosystem === 'TypeScript') {
-        await setupLinting(ecosystems.typescript, manager);
+        await setupLinting(eslint.typescript, manager, 'ts');
       } else if (ecosystem === 'React w/ TypeScript') {
-        await setupLinting(ecosystems.react_ts, manager);
+        await setupLinting(eslint.reactTs, manager, 'reactTs');
       } break;
 
     default:

@@ -7,7 +7,7 @@ import { AnswersProps, ManagerProps } from './types/index.js';
 import questions from './data/questions.js';
 import stripAnswers from './utils/stripAnswers.js';
 import {
-  handleNode, handleManager, handleBuildTool, handleLinting, handleStylint, setupEditor,
+  handleNode, handleManager, handleEditor, handleBuildTool, handleLinting, handleStylint,
 } from './modules/index.js';
 
 const setupParrot = async (manager: ManagerProps) => {
@@ -28,10 +28,10 @@ const setupParrot = async (manager: ManagerProps) => {
 };
 
 const initEnvSetup = async (answers: AnswersProps, manager: ManagerProps) => {
+  await handleEditor(answers.ide);
   await handleBuildTool(answers.tool, answers.ecosystem);
-  await handleLinting(answers.linting, answers.ecosystem, manager);
+  await handleLinting(answers.willLint, answers.ecosystem, manager);
   await handleStylint(answers.styling, manager);
-  await setupEditor(answers.ide);
 };
 
 const main = async () => {

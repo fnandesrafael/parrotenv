@@ -1,13 +1,7 @@
-import writeViteConfig from './writeViteConfig.js';
-import writeEditorConfig from './writeEditorConfig.js';
-import writeEditorSettings from './writeEditorSettings.js';
-import installStylingPkgs from './installStylingPkgs.js';
-import writeStylelintrc from './writeStylelintrc.js';
+import installDependencies from './installDependencies.js';
+import writeConfigFile from './writeConfigFile.js';
 
 export {
-  writeViteConfig,
-  writeEditorConfig,
-  writeEditorSettings,
-  installStylingPkgs,
-  writeStylelintrc,
+  installDependencies,
+  writeConfigFile,
 };

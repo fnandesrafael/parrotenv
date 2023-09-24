@@ -4,7 +4,7 @@ import { ManagerProps } from '../types/index.js';
 
 const installLintingPkgs = async (packages: string, manager: ManagerProps) => {
   await util.promisify(exec)(
-    `${manager.install_command} ${packages} -D`,
+    `${manager.installCommand} ${packages} -D`,
     { cwd: './mock' },
   );
 };

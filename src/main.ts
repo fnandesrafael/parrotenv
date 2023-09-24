@@ -16,7 +16,7 @@ const setupParrot = async (manager: ManagerProps) => {
   ).start();
 
   try {
-    await util.promisify(exec)(`${manager.install_command} parrotenv -D`, { cwd: './mock' });
+    await util.promisify(exec)(`${manager.installCommand} parrotenv -D`, { cwd: './mock' });
 
     spinner.success({ text: `${chalk.greenBright('🦜 Parrot! Your ParrotEnv has been installed sucessfully!')}` });
   } catch (e) {
@@ -45,7 +45,7 @@ const main = async () => {
     await setupParrot(manager);
     await initEnvSetup(stripedAnswers, manager);
   } else {
-    await util.promisify(exec)(manager.init_command, { cwd: './mock' });
+    await util.promisify(exec)(manager.initCommand, { cwd: './mock' });
     await setupParrot(manager);
     await initEnvSetup(stripedAnswers, manager);
   }

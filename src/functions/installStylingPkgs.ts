@@ -6,13 +6,13 @@ const installStylingPkgs = async (framework: FrameworkProps, manager: ManagerPro
   const { dependencies, devDependencies } = framework;
 
   await util.promisify(exec)(
-    `${manager.install_command} ${devDependencies} -D`,
+    `${manager.installCommand} ${devDependencies} -D`,
     { cwd: './mock' },
   );
 
   if (framework.dependencies) {
     await util.promisify(exec)(
-      `${manager.install_command} ${dependencies}`,
+      `${manager.installCommand} ${dependencies}`,
       { cwd: './mock' },
     );
   }

@@ -13,9 +13,9 @@ type AnswersProps = {
 };
 
 type EcosystemProps = {
-  linting_pkgs: string,
-  eslintrc_path: string,
-  tsconfig_path?: string
+  lintingPkgs: string,
+  eslintrcPath: string,
+  tsconfigPath?: string
 };
 
 type FrameworkProps = {
@@ -25,8 +25,8 @@ type FrameworkProps = {
 };
 
 type ManagerProps = {
-  init_command: string,
-  install_command: string
+  initCommand: string,
+  installCommand: string
 };
 
 type QuestionProps = {

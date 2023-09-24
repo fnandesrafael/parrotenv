@@ -1,15 +1,15 @@
 const managers = {
   npm: {
-    init_command: 'npm init -y',
-    install_command: 'npm install',
+    initCommand: 'npm init -y',
+    installCommand: 'npm install',
   },
   yarn: {
-    init_command: 'yarn init -y',
-    install_command: 'yarn add',
+    initCommand: 'yarn init -y',
+    installCommand: 'yarn add',
   },
   bun: {
-    init_command: 'bun init -y',
-    install_command: 'bun install',
+    initCommand: 'bun init -y',
+    installCommand: 'bun install',
   },
 };
 

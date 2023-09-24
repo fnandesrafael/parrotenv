@@ -94,7 +94,7 @@ const setupScssStyledComponentsStyling = async (styling: string) => {
   }
 };
 
-const setupStylint = async (styling: Array<string>) => {
+const handleStylint = async (styling: Array<string>) => {
   if (styling.length <= 1) {
     switch (styling[0]) {
       case 'CSS':
@@ -120,4 +120,4 @@ const setupStylint = async (styling: Array<string>) => {
   }
 };
 
-export default setupStylint;
+export default handleStylint;

@@ -28,9 +28,9 @@ const setupParrot = async (manager: ManagerProps) => {
 };
 
 const initEnvSetup = async (answers: AnswersProps, manager: ManagerProps) => {
-  await handleBuildTool(answers.framework, answers.ecosystem);
+  await handleBuildTool(answers.tool, answers.ecosystem);
   await handleLinting(answers.linting, answers.ecosystem, manager);
-  await handleStylint(answers.styling);
+  await handleStylint(answers.styling, manager);
   await setupEditor(answers.ide);
 };
 

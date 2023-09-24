@@ -15,7 +15,7 @@ const questions: Array<QuestionProps> = [
     choices: ['npm', 'yarn', 'bun'],
   },
   {
-    name: 'framework',
+    name: 'tool',
     type: 'list',
     message: '🛠️  Which build tool have you used to bootstrap this project?',
     choices: [
@@ -53,12 +53,13 @@ const questions: Array<QuestionProps> = [
   },
   {
     name: 'styling',
-    type: 'checkbox',
+    type: 'list',
     message: `🎨 Perchance your'e planning on writing any ${chalk.blue('CSS')}, which frameworkd/preprocessor/library do you want to set up with a standard ${chalk.magentaBright('Stylelint')} configuration?`,
     choices: [
       chalk.blue('CSS'),
       chalk.magentaBright('SCSS'),
       chalk.magenta('Styled Components'),
+      chalk.cyan('Tailwind'),
       chalk.grey('N/A'),
     ],
   },

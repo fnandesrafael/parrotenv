@@ -16,7 +16,7 @@ const setupStyling = async (framework: FrameworkProps, manager: ManagerProps) =>
     spinner.success({
       text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.magentaBright('Styling')} settings have been configured sucessfully.`)}
       ${chalk.greenBright('+')} The following packages have been added to your project devDependencies: ${chalk.gray(framework.devDependencies)}.
-      ${chalk.greenBright('+')} The following packages have been added to your project dependencies: ${chalk.gray(framework.dependencies)}.
+      ${framework.dependencies !== '' ? `${chalk.greenBright('+')} The following packages have been added to your project dependencies: ${chalk.gray(framework.dependencies)}.` : ''}
       ${chalk.greenBright('+')} ".stylelintrc.json" file was generated.`,
     });
   } catch (e) {

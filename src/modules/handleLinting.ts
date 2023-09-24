@@ -25,6 +25,7 @@ const setupLinting = async (framework: FrameworkProps, manager: ManagerProps, en
     spinner.success({
       text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.magentaBright('Linting')} settings have been configured sucessfully.`)}
       ${chalk.greenBright('+')} The following packages have been added to your project devDependencies: ${chalk.gray(framework.devDependencies)}.
+      ${framework.dependencies !== '' ? `${chalk.greenBright('+')} The following packages have been added to your project dependencies: ${chalk.gray(framework.dependencies)}.` : ''}
       ${chalk.greenBright('+')} ".prettierrc.json" file was generated.
       ${chalk.greenBright('+')} ".eslintrc.json" file was generated.
       ${env ? (`${chalk.greenBright('+')} "tsconfig.json" file was generated.`) : ''}`,

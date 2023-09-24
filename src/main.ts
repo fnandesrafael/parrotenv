@@ -18,7 +18,7 @@ const setupParrot = async (manager: ManagerProps) => {
   try {
     await util.promisify(exec)(`${manager.installCommand} parrotenv -D`, { cwd: './mock' });
 
-    spinner.success({ text: `${chalk.greenBright('🦜 Parrot! Your ParrotEnv has been installed sucessfully!')}` });
+    spinner.success({ text: `${chalk.greenBright('🦜 Parrot! Your "parrotenv" package has been installed sucessfully! Wait while your environment is being set up.')}` });
   } catch (e) {
     spinner.error({
       text: `${chalk.red(`It seems that some problems occurred while your ParrotEnv was being installed... 🦜 Parrot...,\n${e}`)}`,

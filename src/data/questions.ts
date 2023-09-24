@@ -11,7 +11,7 @@ const questions: Array<QuestionProps> = [
   {
     name: 'manager',
     type: 'list',
-    message: '📦 Which package manager are you currently using?',
+    message: `📦 Which package manager are you currently using?${chalk.gray('(We strongly recommend that you use npm. Besides being a slower package manager, some packages may not exist in other package manager repositories.)')}`,
     choices: ['npm', 'yarn', 'bun'],
   },
   {
@@ -54,7 +54,7 @@ const questions: Array<QuestionProps> = [
   {
     name: 'styling',
     type: 'list',
-    message: `🎨 Perchance your'e planning on writing any ${chalk.blue('CSS')}, which frameworkd/preprocessor/library do you want to set up with a standard ${chalk.magentaBright('Stylelint')} configuration?`,
+    message: `🎨 Perchance your'e planning on writing any ${chalk.blue('CSS')}, which framework/preprocessor/library do you want to set up with a standard ${chalk.magentaBright('Stylelint')} configuration?`,
     choices: [
       chalk.blue('CSS'),
       chalk.magentaBright('SCSS'),

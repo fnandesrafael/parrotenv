@@ -1,18 +1,19 @@
 import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
-import ecosystems, { EcosystemProps } from '../data/ecosystems.js';
+import { EcosystemProps, ManagerProps } from '../types/index.js';
+import ecosystems from '../data/ecosystems.js';
 import installLintingPkgs from '../functions/installLintingPkgs.js';
 import writeEslintrc from '../functions/writeEslintrc.js';
 import writePrettierrc from '../functions/writePrettierrc.js';
 import writeTsconfig from '../functions/writeTsConfig.js';
 
-const setupLinting = async (ecosystem: EcosystemProps) => {
+const setupLinting = async (ecosystem: EcosystemProps, manager: ManagerProps) => {
   const spinner = createSpinner(
     `Your ${chalk.magentaBright('Linting')} settings are being configured. 🦜 Parrot!`,
   ).start();
 
   try {
-    await installLintingPkgs(ecosystem.linting_pkgs);
+    await installLintingPkgs(ecosystem.linting_pkgs, manager);
     await writePrettierrc();
     await writeEslintrc(ecosystem.eslintrc_path);
 
@@ -36,17 +37,17 @@ const setupLinting = async (ecosystem: EcosystemProps) => {
   }
 };
 
-const handleLinting = async (linting: string, ecosystem: string) => {
+const handleLinting = async (linting: string, ecosystem: string, manager: ManagerProps) => {
   switch (linting) {
     case 'Yes':
       if (ecosystem === 'JavaScript') {
-        await setupLinting(ecosystems.javascript);
+        await setupLinting(ecosystems.javascript, manager);
       } else if (ecosystem === 'React w/ JavaScript') {
-        await setupLinting(ecosystems.react_js);
+        await setupLinting(ecosystems.react_js, manager);
       } else if (ecosystem === 'TypeScript') {
-        await setupLinting(ecosystems.typescript);
+        await setupLinting(ecosystems.typescript, manager);
       } else if (ecosystem === 'React w/ TypeScript') {
-        await setupLinting(ecosystems.react_ts);
+        await setupLinting(ecosystems.react_ts, manager);
       } break;
 
     default:

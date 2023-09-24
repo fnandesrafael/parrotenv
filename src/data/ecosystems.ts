@@ -1,9 +1,3 @@
-export type EcosystemProps = {
-  linting_pkgs: string,
-  eslintrc_path: string,
-  tsconfig_path?: string
-};
-
 const ecosystems = {
   javascript: {
     linting_pkgs: 'eslint eslint-config-airbnb-base eslint-config-prettier eslint-plugin-import eslint-plugin-prettier prettier',

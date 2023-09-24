@@ -1,9 +1,10 @@
 import { exec } from 'child_process';
 import util from 'util';
+import { ManagerProps } from '../types/index.js';
 
-const installLintingPkgs = async (packages: string) => {
+const installLintingPkgs = async (packages: string, manager: ManagerProps) => {
   await util.promisify(exec)(
-    `npm i ${packages} -D`,
+    `${manager.install_command} ${packages} -D`,
     { cwd: './mock' },
   );
 };

@@ -3,21 +3,20 @@ import { exec } from 'child_process';
 import util from 'util';
 import { createSpinner } from 'nanospinner';
 import chalk from 'chalk';
-import stripAnswers from './utils/stripAnswers.js';
+import { AnswersProps, ManagerProps } from './types/index.js';
 import questions from './data/questions.js';
+import stripAnswers from './utils/stripAnswers.js';
 import {
-  verifyNode, setupBuildTool, handleLinting, setupEditor,
+  verifyNode, setupBuildTool, handleLinting, setupStylint, setupEditor, handleManager,
 } from './modules/index.js';
-import Answers from './types/Answers.js';
-import setupStylint from './modules/setupStyling.js';
 
-const setupParrot = async () => {
+const setupParrot = async (manager: ManagerProps) => {
   const spinner = createSpinner(
     `${chalk.greenBright('Wait a moment while your ParrotEnv is being installed! 🦜 Parrot! ')}`,
   ).start();
 
   try {
-    await util.promisify(exec)('npm install parrotenv -D', { cwd: './mock' });
+    await util.promisify(exec)(`${manager.install_command} parrotenv -D`, { cwd: './mock' });
 
     spinner.success({ text: `${chalk.greenBright('🦜 Parrot! Your ParrotEnv has been installed sucessfully!')}` });
   } catch (e) {
@@ -28,9 +27,9 @@ const setupParrot = async () => {
   }
 };
 
-const initEnvSetup = async (answers: Answers) => {
+const initEnvSetup = async (answers: AnswersProps, manager: ManagerProps) => {
   await setupBuildTool(answers.framework, answers.ecosystem);
-  await handleLinting(answers.linting, answers.ecosystem);
+  await handleLinting(answers.linting, answers.ecosystem, manager);
   await setupEditor(answers.ide);
   await setupStylint(answers.styling);
 };
@@ -40,14 +39,14 @@ const main = async () => {
   const stripedAnswers = stripAnswers(answers);
 
   const hasInit: boolean = await verifyNode(stripedAnswers.node);
+  const manager = await handleManager(stripedAnswers.manager);
 
   if (hasInit) {
-    await setupParrot();
-    await initEnvSetup(stripedAnswers);
+    await setupParrot(manager);
+    await initEnvSetup(stripedAnswers, manager);
   } else {
-    await util.promisify(exec)('npm init -y', { cwd: './mock' });
-    await setupParrot();
-    await initEnvSetup(stripedAnswers);
+    await util.promisify(exec)(manager.init_command, { cwd: './mock' });
+    await initEnvSetup(stripedAnswers, manager);
   }
 };
 

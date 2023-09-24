@@ -1,12 +1,18 @@
 import chalk from 'chalk';
-import Question from '../types/Question.js';
+import { QuestionProps } from '../types/index.js';
 
-const questions: Array<Question> = [
+const questions: Array<QuestionProps> = [
   {
     name: 'node',
     type: 'list',
     message: `🤔 Have you already initialized a ${chalk.greenBright('node')} project?`,
     choices: ['Yes', 'No'],
+  },
+  {
+    name: 'manager',
+    type: 'list',
+    message: '📦 Which package manager are you currently using?',
+    choices: ['npm', 'yarn', 'bun'],
   },
   {
     name: 'framework',

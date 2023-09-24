@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
 import { FrameworkProps, ManagerProps } from '../types/index.js';
 import frameworks from '../data/frameworks.js';
-import { installDependencies, writeConfigFile } from '../scripts/index.js';
+import { installDependencies, runAdditionalCmd, writeConfigFile } from '../scripts/index.js';
 
 const setupStyling = async (framework: FrameworkProps, manager: ManagerProps) => {
   const spinner = createSpinner(
@@ -13,11 +13,15 @@ const setupStyling = async (framework: FrameworkProps, manager: ManagerProps) =>
     await installDependencies(framework, manager);
     await writeConfigFile(framework.configFilePath, '.stylelintrc.json');
 
+    if (framework.additionalCmd) {
+      await runAdditionalCmd(framework.additionalCmd);
+    }
+
     spinner.success({
-      text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.magentaBright('Styling')} settings have been configured sucessfully.`)}
+      text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.magentaBright('Styling')} settings have been configured successfully.`)}
       ${chalk.greenBright('+')} The following packages have been added to your project devDependencies: ${chalk.gray(framework.devDependencies)}.
-      ${framework.dependencies !== '' ? `${chalk.greenBright('+')} The following packages have been added to your project dependencies: ${chalk.gray(framework.dependencies)}.` : ''}
-      ${chalk.greenBright('+')} ".stylelintrc.json" file was generated.`,
+      ${chalk.greenBright('+')} ".stylelintrc.json" file was generated.
+      ${framework.dependencies !== '' ? `${chalk.greenBright('+')} The following packages have been added to your project dependencies: ${chalk.gray(framework.dependencies)}.` : ''}`,
     });
   } catch (e) {
     spinner.error({
@@ -42,6 +46,10 @@ const handleStylint = async (framework: string, manager: ManagerProps) => {
 
     case 'Styled Components':
       await setupStyling(style.styledComponents, manager);
+      break;
+
+    case 'Tailwind':
+      await setupStyling(style.tailwind, manager);
       break;
 
     default:

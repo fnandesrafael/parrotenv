@@ -9,9 +9,10 @@ type AnswersProps = {
 };
 
 type FrameworkProps = {
+  additionalCmd?: string,
+  configFilePath?: string,
   dependencies?: string,
   devDependencies?: string,
-  configFilePath?: string
 };
 
 type ManagerProps = {

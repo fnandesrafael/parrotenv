@@ -6,7 +6,7 @@ import chalk from 'chalk';
 import stripAnswers from './utils/stripAnswers.js';
 import questions from './data/questions.js';
 import {
-  verifyNode, setupBuildTool, setupLinting, setupEditor,
+  verifyNode, setupBuildTool, handleLinting, setupEditor,
 } from './modules/index.js';
 import Answers from './types/Answers.js';
 import setupStylint from './modules/setupStyling.js';
@@ -30,7 +30,7 @@ const setupParrot = async () => {
 
 const initEnvSetup = async (answers: Answers) => {
   await setupBuildTool(answers.framework, answers.ecosystem);
-  await setupLinting(answers.linting, answers.ecosystem);
+  await handleLinting(answers.linting, answers.ecosystem);
   await setupEditor(answers.ide);
   await setupStylint(answers.styling);
 };

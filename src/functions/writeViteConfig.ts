@@ -1,7 +1,7 @@
 import path from 'path';
 import fs from 'fs-extra';
 
-const writeViteConfig = async (extension: string) => {
+const writeViteConfig = async () => {
   const projectRoot = path.resolve(process.cwd(), 'mock');
   /**
    * const filePath = path.resolve(
@@ -10,7 +10,7 @@ const writeViteConfig = async (extension: string) => {
    */
   const filePath = path.resolve(projectRoot, '../templates/settings/vite/vite.config.js');
 
-  await fs.copy(filePath, path.resolve(projectRoot, `vite.config${extension}`));
+  await fs.copy(filePath, path.resolve(projectRoot, 'vite.config.js'));
 };
 
 export default writeViteConfig;

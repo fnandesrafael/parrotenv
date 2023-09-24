@@ -5,10 +5,10 @@ import { createSpinner } from 'nanospinner';
 import chalk from 'chalk';
 import { AnswersProps, ManagerProps } from './types/index.js';
 import questions from './data/questions.js';
-import stripAnswers from './utils/stripAnswers.js';
 import {
   handleNode, handleManager, handleEditor, handleBuildTool, handleLinting, handleStyling,
 } from './modules/index.js';
+import stripAnswers from './utils/stripAnswers.js';
 
 const setupParrot = async (manager: ManagerProps) => {
   const spinner = createSpinner(

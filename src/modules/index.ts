@@ -1,11 +1,15 @@
-import verifyNode from './verifyNode.js';
-import setupBuildTool from './setupBuildTool.js';
-import setupLinting from './setupLinting.js';
-import setupEditor from './setupEditor.js';
+import handleNode from './handleNode.js';
+import handleManager from './handleManager.js';
+import handleEditor from './handleEditor.js';
+import handleBuildTool from './handleBuildTool.js';
+import handleLinting from './handleLinting.js';
+import handleStyling from './handleStyling.js';
 
 export {
-  verifyNode,
-  setupBuildTool,
-  setupLinting,
-  setupEditor,
+  handleNode,
+  handleManager,
+  handleEditor,
+  handleBuildTool,
+  handleLinting,
+  handleStyling,
 };

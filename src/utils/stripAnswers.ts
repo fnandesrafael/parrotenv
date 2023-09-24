@@ -1,24 +1,21 @@
 import stripAnsi from 'strip-ansi';
-import { Answers, Answer } from '../types/index.js';
+import { AnswersProps } from '../types/index.js';
 
-const stripAnswers = (obj: Answer): Answers => {
-  const stripedAnswers: Answers = {
+const stripAnswers = (obj: { [key: string]: string }): AnswersProps => {
+  const stripedAnswers: AnswersProps = {
     node: '',
-    framework: '',
-    ecosystem: '',
-    linting: '',
+    manager: '',
     ide: '',
+    bootstrapper: '',
+    ecosystem: '',
+    willLint: '',
     styling: null,
   };
 
   Object.entries(obj).forEach((answer) => {
     const [key, value] = answer;
 
-    if (typeof value === 'string') {
-      stripedAnswers[key] = stripAnsi(value);
-    } else if (Array.isArray(value)) {
-      stripedAnswers[key] = value.map((item) => stripAnsi(item));
-    }
+    stripedAnswers[key] = stripAnsi(value);
   });
 
   return stripedAnswers;

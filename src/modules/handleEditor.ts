@@ -1,15 +1,15 @@
 import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
-import { writeEditorConfig, writeEditorSettings } from '../functions/index.js';
+import { writeConfigFile } from '../scripts/index.js';
 
-const setupVsCode = async () => {
+const setupEditor = async () => {
   const spinner = createSpinner(
-    `Your ${chalk.blueBright('VS Code')} is being configured. 🦜 Parrot!`,
+    `Your ${chalk.blueBright('Editor')} is being configured. 🦜 Parrot!`,
   ).start();
 
   try {
-    await writeEditorConfig();
-    await writeEditorSettings();
+    await writeConfigFile('ide/vscode/.editorconfig', '.editorconfig');
+    await writeConfigFile('ide/vscode/.vscode', '.vscode');
 
     spinner.success({
       text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.blueBright('VS Code')} settings have been configured sucessfully.`)}
@@ -25,10 +25,10 @@ const setupVsCode = async () => {
   }
 };
 
-const setupEditor = async (ide: string) => {
+const handleEditor = async (ide: string) => {
   switch (ide) {
     case 'VS Code':
-      await setupVsCode();
+      await setupEditor();
       break;
 
     default:
@@ -36,4 +36,4 @@ const setupEditor = async (ide: string) => {
   }
 };
 
-export default setupEditor;
+export default handleEditor;

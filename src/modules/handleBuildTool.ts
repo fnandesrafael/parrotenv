@@ -1,14 +1,14 @@
 import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
-import writeViteConfig from '../functions/writeViteConfig.js';
+import { writeConfigFile } from '../scripts/index.js';
 
-const setupViteForReact = async (extension: string) => {
+const setupBuildTool = async () => {
   const spinner = createSpinner(
     `Your ${chalk.yellow('Vite')} is being configured. 🦜 Parrot! `,
   ).start();
 
   try {
-    await writeViteConfig(extension);
+    await writeConfigFile('config/vite/vite.config.js', 'vite.config.js');
 
     spinner.success({
       text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.yellow('Vite')} settings have been configured successfully.`)}
@@ -23,13 +23,11 @@ const setupViteForReact = async (extension: string) => {
   }
 };
 
-const setupBuildTool = async (framework: string, ecosystem: string) => {
+const handleBuildTool = async (framework: string, ecosystem: string) => {
   switch (framework) {
     case 'Vite':
-      if (ecosystem === 'React w/ JavaScript') {
-        await setupViteForReact('.js');
-      } else if (ecosystem === 'React w/ TypeScript') {
-        await setupViteForReact('.ts');
+      if (ecosystem === 'React w/ JavaScript' || ecosystem === 'React w/ TypeScript') {
+        await setupBuildTool();
       }
       break;
 
@@ -38,4 +36,4 @@ const setupBuildTool = async (framework: string, ecosystem: string) => {
   }
 };
 
-export default setupBuildTool;
+export default handleBuildTool;

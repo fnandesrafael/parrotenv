@@ -3,23 +3,22 @@ import { exec } from 'child_process';
 import util from 'util';
 import { createSpinner } from 'nanospinner';
 import chalk from 'chalk';
-import stripAnswers from './utils/stripAnswers.js';
+import { AnswersProps, ManagerProps } from './types/index.js';
 import questions from './data/questions.js';
 import {
-  verifyNode, setupBuildTool, setupLinting, setupEditor,
+  handleNode, handleManager, handleEditor, handleBuildTool, handleLinting, handleStyling,
 } from './modules/index.js';
-import Answers from './types/Answers.js';
-import setupStylint from './modules/setupStyling.js';
+import stripAnswers from './utils/stripAnswers.js';
 
-const setupParrot = async () => {
+const setupParrot = async (manager: ManagerProps) => {
   const spinner = createSpinner(
     `${chalk.greenBright('Wait a moment while your ParrotEnv is being installed! 🦜 Parrot! ')}`,
   ).start();
 
   try {
-    await util.promisify(exec)('npm install parrotenv -D', { cwd: './mock' });
+    await util.promisify(exec)(`${manager.installCommand} parrotenv -D`, { cwd: './mock' });
 
-    spinner.success({ text: `${chalk.greenBright('🦜 Parrot! Your ParrotEnv has been installed sucessfully!')}` });
+    spinner.success({ text: `${chalk.greenBright('🦜 Parrot! Your "parrotenv" package has been installed sucessfully! Wait while your environment is being set up.')}` });
   } catch (e) {
     spinner.error({
       text: `${chalk.red(`It seems that some problems occurred while your ParrotEnv was being installed... 🦜 Parrot...,\n${e}`)}`,
@@ -28,26 +27,27 @@ const setupParrot = async () => {
   }
 };
 
-const initEnvSetup = async (answers: Answers) => {
-  await setupBuildTool(answers.framework, answers.ecosystem);
-  await setupLinting(answers.linting, answers.ecosystem);
-  await setupEditor(answers.ide);
-  await setupStylint(answers.styling);
+const initEnvSetup = async (answers: AnswersProps, manager: ManagerProps) => {
+  await handleEditor(answers.ide);
+  await handleBuildTool(answers.bootstrapper, answers.ecosystem);
+  await handleLinting(answers.willLint, answers.ecosystem, manager);
+  await handleStyling(answers.styling, manager);
 };
 
 const main = async () => {
   const answers = await inquirer.prompt(questions);
   const stripedAnswers = stripAnswers(answers);
 
-  const hasInit: boolean = await verifyNode(stripedAnswers.node);
+  const hasInit: boolean = await handleNode(stripedAnswers.node);
+  const manager = await handleManager(stripedAnswers.manager);
 
   if (hasInit) {
-    await setupParrot();
-    await initEnvSetup(stripedAnswers);
+    await setupParrot(manager);
+    await initEnvSetup(stripedAnswers, manager);
   } else {
-    await util.promisify(exec)('npm init -y', { cwd: './mock' });
-    await setupParrot();
-    await initEnvSetup(stripedAnswers);
+    await util.promisify(exec)(manager.initCommand, { cwd: './mock' });
+    await setupParrot(manager);
+    await initEnvSetup(stripedAnswers, manager);
   }
 };
 

@@ -1,7 +1,7 @@
 import chalk from 'chalk';
-import Question from '../types/Question.js';
+import { QuestionProps } from '../types/index.js';
 
-const questions: Array<Question> = [
+const questions: Array<QuestionProps> = [
   {
     name: 'node',
     type: 'list',
@@ -9,12 +9,26 @@ const questions: Array<Question> = [
     choices: ['Yes', 'No'],
   },
   {
-    name: 'framework',
+    name: 'manager',
     type: 'list',
-    message: '🛠️  Which build tool have you used to bootstrap this project?',
+    message: `📦 Which package manager are you currently using?${chalk.gray('(We strongly recommend that you use npm. Besides being a slower package manager, some packages may not exist in other package manager repositories.)')}`,
+    choices: ['npm', 'yarn', 'bun'],
+  },
+  {
+    name: 'ide',
+    type: 'list',
+    message: '💻 Which code editor are you using for this project?',
+    choices: [
+      chalk.blueBright('VS Code'),
+      chalk.grey('N/A'),
+    ],
+  },
+  {
+    name: 'bootstraper',
+    type: 'list',
+    message: '🛠️  Which framework have you used to bootstrap this project?',
     choices: [
       chalk.yellow('Vite'),
-      'Next',
       chalk.grey('N/A'),
     ],
   },
@@ -31,28 +45,20 @@ const questions: Array<Question> = [
     ],
   },
   {
-    name: 'linting',
+    name: 'willLint',
     type: 'list',
     message: `🧹 Do you want to configure ${chalk.magentaBright('ESLint')} and ${chalk.magentaBright('Prettier')} to lint and format your code?`,
     choices: ['Yes', 'No'],
   },
   {
-    name: 'ide',
-    type: 'list',
-    message: '💻 Which code editor are you using for this project?',
-    choices: [
-      chalk.blueBright('VS Code'),
-      chalk.grey('N/A'),
-    ],
-  },
-  {
     name: 'styling',
-    type: 'checkbox',
-    message: `🎨 Perchance your'e planning on writing any ${chalk.blue('CSS')}, which frameworkd/preprocessor/library do you want to set up with a standard ${chalk.magentaBright('Stylelint')} configuration?`,
+    type: 'list',
+    message: `🎨 Perchance your'e planning on writing any ${chalk.blue('CSS')}, which framework/preprocessor/library do you want to set up with a standard ${chalk.magentaBright('Stylelint')} configuration?`,
     choices: [
       chalk.blue('CSS'),
       chalk.magentaBright('SCSS'),
       chalk.magenta('Styled Components'),
+      chalk.cyan('Tailwind'),
       chalk.grey('N/A'),
     ],
   },

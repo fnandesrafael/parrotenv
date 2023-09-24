@@ -7,7 +7,7 @@ import { AnswersProps, ManagerProps } from './types/index.js';
 import questions from './data/questions.js';
 import stripAnswers from './utils/stripAnswers.js';
 import {
-  verifyNode, setupBuildTool, handleLinting, setupStylint, setupEditor, handleManager,
+  handleNode, handleManager, handleBuildTool, handleLinting, setupStylint, setupEditor,
 } from './modules/index.js';
 
 const setupParrot = async (manager: ManagerProps) => {
@@ -28,7 +28,7 @@ const setupParrot = async (manager: ManagerProps) => {
 };
 
 const initEnvSetup = async (answers: AnswersProps, manager: ManagerProps) => {
-  await setupBuildTool(answers.framework, answers.ecosystem);
+  await handleBuildTool(answers.framework, answers.ecosystem);
   await handleLinting(answers.linting, answers.ecosystem, manager);
   await setupEditor(answers.ide);
   await setupStylint(answers.styling);
@@ -38,7 +38,7 @@ const main = async () => {
   const answers = await inquirer.prompt(questions);
   const stripedAnswers = stripAnswers(answers);
 
-  const hasInit: boolean = await verifyNode(stripedAnswers.node);
+  const hasInit: boolean = await handleNode(stripedAnswers.node);
   const manager = await handleManager(stripedAnswers.manager);
 
   if (hasInit) {
@@ -46,6 +46,7 @@ const main = async () => {
     await initEnvSetup(stripedAnswers, manager);
   } else {
     await util.promisify(exec)(manager.init_command, { cwd: './mock' });
+    await setupParrot(manager);
     await initEnvSetup(stripedAnswers, manager);
   }
 };

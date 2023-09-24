@@ -2,8 +2,8 @@ import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
 import { FrameworkProps, ManagerProps } from '../types/index.js';
 import frameworks from '../data/frameworks.js';
-import installDependencies from '../functions/installDependencies.js';
-import writeConfigFile from '../functions/writeConfigFile.js';
+import installDependencies from '../scripts/installDependencies.js';
+import writeConfigFile from '../scripts/writeConfigFile.js';
 
 const setupLinting = async (framework: FrameworkProps, manager: ManagerProps, env?: string) => {
   const spinner = createSpinner(
@@ -14,13 +14,13 @@ const setupLinting = async (framework: FrameworkProps, manager: ManagerProps, en
     const { lint: { prettier } } = frameworks;
 
     await installDependencies(framework, manager);
-    await writeConfigFile(framework.configFilePath);
-    await writeConfigFile(prettier.configFilePath);
+    await writeConfigFile(framework.configFilePath, '.eslintrc.json');
+    await writeConfigFile(prettier.configFilePath, '.prettierrc');
 
     if (env === 'ts') {
-      await writeConfigFile('/config/typescript/tsconfig.json');
+      await writeConfigFile('/config/typescript/tsconfig.json', 'tsconfig.json');
     } else if (env === 'reactTs') {
-      await writeConfigFile('/config/react-ts/tsconfig.json');
+      await writeConfigFile('/config/react-ts/tsconfig.json', 'tsconfig.json');
     }
 
     spinner.success({
@@ -28,7 +28,7 @@ const setupLinting = async (framework: FrameworkProps, manager: ManagerProps, en
       ${chalk.greenBright('+')} The following packages have been added to your project devDependencies: ${chalk.gray(framework.devDependencies)}
       ${chalk.greenBright('+')} ".prettierrc.json" file was generated.
       ${chalk.greenBright('+')} ".eslintrc.json" file was generated.
-      ${env ? (`${chalk.greenBright('+')} "tsconfig.json" file was generated.}`) : null}
+      ${env ? (`${chalk.greenBright('+')} "tsconfig.json" file was generated.}`) : ''}
       `,
     });
   } catch (e) {

@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
-import { writeEditorConfig, writeEditorSettings } from '../functions/index.js';
+import writeConfigFile from '../scripts/writeConfigFile.js';
 
 const setupEditor = async () => {
   const spinner = createSpinner(
@@ -8,8 +8,8 @@ const setupEditor = async () => {
   ).start();
 
   try {
-    await writeEditorConfig();
-    await writeEditorSettings();
+    await writeConfigFile('editors/vscode/.editorconfig', '.editorconfig');
+    await writeConfigFile('editors/vscode/.vscode', '.vscode');
 
     spinner.success({
       text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.blueBright('VS Code')} settings have been configured sucessfully.`)}

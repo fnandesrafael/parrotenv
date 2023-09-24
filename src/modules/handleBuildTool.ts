@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
-import writeViteConfig from '../functions/writeViteConfig.js';
+import writeConfigFile from '../scripts/writeConfigFile.js';
 
 const setupVite = async () => {
   const spinner = createSpinner(
@@ -8,7 +8,7 @@ const setupVite = async () => {
   ).start();
 
   try {
-    await writeViteConfig();
+    await writeConfigFile('config/vite/vite.config.js', 'vite.config.js');
 
     spinner.success({
       text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.yellow('Vite')} settings have been configured successfully.`)}

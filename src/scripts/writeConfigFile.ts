@@ -1,7 +1,7 @@
 import path from 'path';
 import fs from 'fs-extra';
 
-const writeConfigFile = async (configFilePath: string) => {
+const writeConfigFile = async (configFilePath: string, fileName: string) => {
   const projectRoot = path.resolve(process.cwd(), 'mock');
   /**
    * const filePath = path.resolve(
@@ -10,7 +10,7 @@ const writeConfigFile = async (configFilePath: string) => {
    */
   const filePath = path.resolve(projectRoot, `../templates/${configFilePath}`);
 
-  await fs.copy(filePath, path.resolve(projectRoot, '.eslintrc.json'));
+  await fs.copy(filePath, path.resolve(projectRoot, fileName));
 };
 
 export default writeConfigFile;

@@ -6,7 +6,7 @@ const stripAnswers = (obj: { [key: string]: string }): AnswersProps => {
     node: '',
     manager: '',
     ide: '',
-    bootstraper: '',
+    bootstrapper: '',
     ecosystem: '',
     willLint: '',
     styling: null,

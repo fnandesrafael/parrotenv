@@ -2,7 +2,7 @@ type AnswersProps = {
   node: string,
   manager: string
   ide: string,
-  bootstraper: string,
+  bootstrapper: string,
   ecosystem: string,
   willLint: string,
   styling: string,

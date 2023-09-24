@@ -5,10 +5,10 @@ const stripAnswers = (obj: { [key: string]: string }): AnswersProps => {
   const stripedAnswers: AnswersProps = {
     node: '',
     manager: '',
-    tool: '',
+    ide: '',
+    bootstraper: '',
     ecosystem: '',
     willLint: '',
-    ide: '',
     styling: null,
   };
 

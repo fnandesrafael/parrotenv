@@ -24,9 +24,9 @@ const questions: Array<QuestionProps> = [
     ],
   },
   {
-    name: 'tool',
+    name: 'bootstraper',
     type: 'list',
-    message: '🛠️  Which build tool have you used to bootstrap this project?',
+    message: '🛠️  Which framework have you used to bootstrap this project?',
     choices: [
       chalk.yellow('Vite'),
       chalk.grey('N/A'),

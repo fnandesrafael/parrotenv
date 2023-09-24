@@ -1,7 +1,3 @@
-type AnswerProps = {
-  [key: string]: string
-};
-
 type AnswersProps = {
   node: string,
   tool: string,
@@ -31,5 +27,5 @@ type QuestionProps = {
 };
 
 export {
-  AnswerProps, AnswersProps, FrameworkProps, QuestionProps, ManagerProps,
+  AnswersProps, FrameworkProps, QuestionProps, ManagerProps,
 };

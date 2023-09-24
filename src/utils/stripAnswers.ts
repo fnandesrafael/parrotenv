@@ -1,7 +1,7 @@
 import stripAnsi from 'strip-ansi';
-import { AnswersProps, AnswerProps } from '../types/index.js';
+import { AnswersProps } from '../types/index.js';
 
-const stripAnswers = (obj: AnswerProps): AnswersProps => {
+const stripAnswers = (obj: { [key: string]: string }): AnswersProps => {
   const stripedAnswers: AnswersProps = {
     node: '',
     manager: '',

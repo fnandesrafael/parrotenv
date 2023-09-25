@@ -1,9 +1,9 @@
-import handleNode from './handleNode.js';
-import handleManager from './handleManager.js';
-import handleEditor from './handleEditor.js';
-import handleBuildTool from './handleBuildTool.js';
-import handleLinting from './handleLinting.js';
-import handleStyling from './handleStyling.js';
+import handleNode from './handleNode';
+import handleManager from './handleManager';
+import handleEditor from './handleEditor';
+import handleBuildTool from './handleBuildTool';
+import handleLinting from './handleLinting';
+import handleStyling from './handleStyling';
 
 export {
   handleNode,

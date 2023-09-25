@@ -1,5 +1,5 @@
-import managers from '../data/managers.js';
-import { ManagerProps } from '../types/index.js';
+import managers from '../data/managers';
+import { ManagerProps } from '../types/index';
 
 const handleManager = async (manager: string): Promise<ManagerProps> => {
   switch (manager) {

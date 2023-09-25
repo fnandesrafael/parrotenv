@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
-import { writeConfigFile } from '../scripts/index.js';
+import { writeConfigFile } from '../scripts/index';
 
 const setupEditor = async () => {
   const spinner = createSpinner(
@@ -14,7 +14,8 @@ const setupEditor = async () => {
     spinner.success({
       text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.blueBright('VS Code')} settings have been configured sucessfully.`)}
       ${chalk.greenBright('+')} ".editorconfig" file was generated.
-      ${chalk.greenBright('+')} "settings.json" file was generated on .vscode.`,
+      ${chalk.greenBright('+')} "settings.json" file was generated on .vscode.
+      `,
     });
   } catch (e) {
     spinner.error({

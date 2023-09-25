@@ -11,8 +11,12 @@ const questions: Array<QuestionProps> = [
   {
     name: 'manager',
     type: 'list',
-    message: `📦 Which package manager are you currently using?${chalk.gray('(We strongly recommend that you use npm. Besides being a slower package manager, some packages may not exist in other package manager repositories.)')}`,
-    choices: ['npm', 'yarn', 'bun'],
+    message: `📦 Which package manager are you currently using?${chalk.gray('(We strongly recommend that you consider migrating to "bun" due to its remarkable speed and outstanding performance)')}`,
+    choices: [
+      'bun',
+      'yarn',
+      'npm',
+    ],
   },
   {
     name: 'ide',

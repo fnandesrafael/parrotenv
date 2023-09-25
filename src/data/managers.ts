@@ -9,7 +9,7 @@ const managers = {
   },
   bun: {
     initCommand: 'bun init -y',
-    installCommand: 'bun install',
+    installCommand: 'bun add',
   },
 };
 

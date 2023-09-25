@@ -1,8 +1,8 @@
 import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
-import { FrameworkProps, ManagerProps } from '../types/index.js';
-import frameworks from '../data/frameworks.js';
-import { installDependencies, writeConfigFile } from '../scripts/index.js';
+import { FrameworkProps, ManagerProps } from '../types/index';
+import frameworks from '../data/frameworks';
+import { installDependencies, writeConfigFile } from '../scripts/index';
 
 const setupLinting = async (framework: FrameworkProps, manager: ManagerProps, env?: string) => {
   const spinner = createSpinner(
@@ -14,7 +14,7 @@ const setupLinting = async (framework: FrameworkProps, manager: ManagerProps, en
 
     await installDependencies(framework, manager);
     await writeConfigFile(framework.configFilePath, '.eslintrc.json');
-    await writeConfigFile(prettier.configFilePath, '.prettierrc');
+    await writeConfigFile(prettier.configFilePath, '.prettierrc.json');
 
     if (env === 'ts') {
       await writeConfigFile('/config/typescript/tsconfig.json', 'tsconfig.json');

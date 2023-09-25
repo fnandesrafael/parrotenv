@@ -6,25 +6,38 @@ import chalk from 'chalk';
 import { AnswersProps, ManagerProps } from './types/index';
 import questions from './data/questions';
 import {
-  handleNode, handleManager, handleEditor, handleBuildTool, handleLinting, handleStyling,
+  handleNode,
+  handleManager,
+  handleEditor,
+  handleBuildTool,
+  handleLinting,
+  handleStyling,
 } from './modules/index';
 import stripAnswers from './utils/stripAnswers';
 
 const setupParrot = async (manager: ManagerProps) => {
   const spinner = createSpinner(
-    `${chalk.greenBright('Wait a moment while your ParrotEnv is being installed! 🦜 Parrot! ')}`,
+    `${chalk.greenBright(
+      'Wait a moment while your ParrotEnv is being installed! 🦜 Parrot! ',
+    )}`,
   ).start();
 
   try {
-    await util.promisify(exec)(`${manager.installCommand} parrotenv -D`, { cwd: './mock' });
+    await util.promisify(exec)(`${manager.installCommand} parrotenv -D`, {
+      cwd: './mock',
+    });
 
     spinner.success({
-      text: `${chalk.greenBright('🦜 Parrot! Your "parrotenv" package has been installed sucessfully! Wait while your environment is being set up.')}
+      text: `${chalk.greenBright(
+        '🦜 Parrot! Your "parrotenv" package has been installed sucessfully! Wait while your environment is being set up.',
+      )}
     `,
     });
   } catch (e) {
     spinner.error({
-      text: `${chalk.red(`It seems that some problems occurred while your ParrotEnv was being installed... 🦜 Parrot...,\n${e}`)}`,
+      text: `${chalk.red(
+        `It seems that some problems occurred while your ParrotEnv was being installed... 🦜 Parrot...,\n${e}`,
+      )}`,
     });
     process.exit(1);
   }

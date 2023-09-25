@@ -2,11 +2,20 @@ import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
 import { FrameworkProps, ManagerProps } from '../types/index';
 import frameworks from '../data/frameworks';
-import { installDependencies, runAdditionalCmd, writeConfigFile } from '../scripts/index';
+import {
+  installDependencies,
+  runAdditionalCmd,
+  writeConfigFile,
+} from '../scripts/index';
 
-const setupStyling = async (framework: FrameworkProps, manager: ManagerProps) => {
+const setupStyling = async (
+  framework: FrameworkProps,
+  manager: ManagerProps,
+) => {
   const spinner = createSpinner(
-    `Your ${chalk.magentaBright('Styling')} settings are being configured. 🦜 Parrot!`,
+    `Your ${chalk.magentaBright(
+      'Styling',
+    )} settings are being configured. 🦜 Parrot!`,
   ).start();
 
   try {
@@ -18,14 +27,32 @@ const setupStyling = async (framework: FrameworkProps, manager: ManagerProps) =>
     }
 
     spinner.success({
-      text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.magentaBright('Styling')} settings have been configured successfully.`)}
-      ${chalk.greenBright('+')} The following packages have been added to your project devDependencies: ${chalk.gray(framework.devDependencies)}.
+      text: `${chalk.greenBright(
+        `🦜 Parrot! Your ${chalk.magentaBright(
+          'Styling',
+        )} settings have been configured successfully.`,
+      )}
+      ${chalk.greenBright(
+        '+',
+      )} The following packages have been added to your project devDependencies: ${chalk.gray(
+        framework.devDependencies,
+      )}.
       ${chalk.greenBright('+')} ".stylelintrc.json" file was generated.
-      ${framework.dependencies !== '' ? `${chalk.greenBright('+')} The following packages have been added to your project dependencies: ${chalk.gray(framework.dependencies)}.` : ''}`,
+      ${
+        framework.dependencies !== ''
+          ? `${chalk.greenBright(
+              '+',
+            )} The following packages have been added to your project dependencies: ${chalk.gray(
+              framework.dependencies,
+            )}.`
+          : ''
+      }`,
     });
   } catch (e) {
     spinner.error({
-      text: chalk.red(`The process of setting up your ${chalk.magentaBright('Styling')} settings has failed... 🦜 Parrot...
+      text: chalk.red(`The process of setting up your ${chalk.magentaBright(
+        'Styling',
+      )} settings has failed... 🦜 Parrot...
     \n ${e}`),
     });
     process.exit(1);

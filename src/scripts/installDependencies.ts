@@ -2,7 +2,10 @@ import { exec } from 'child_process';
 import util from 'util';
 import { ManagerProps, FrameworkProps } from '../types/index';
 
-const installDependencies = async (framework: FrameworkProps, manager: ManagerProps) => {
+const installDependencies = async (
+  framework: FrameworkProps,
+  manager: ManagerProps,
+) => {
   const { dependencies, devDependencies } = framework;
 
   await util.promisify(exec)(
@@ -11,10 +14,9 @@ const installDependencies = async (framework: FrameworkProps, manager: ManagerPr
   );
 
   if (dependencies) {
-    await util.promisify(exec)(
-      `${manager.installCommand} ${dependencies}`,
-      { cwd: './mock' },
-    );
+    await util.promisify(exec)(`${manager.installCommand} ${dependencies}`, {
+      cwd: './mock',
+    });
   }
 };
 

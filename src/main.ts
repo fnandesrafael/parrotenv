@@ -3,8 +3,8 @@ import { exec } from 'child_process';
 import util from 'util';
 import { createSpinner } from 'nanospinner';
 import chalk from 'chalk';
-import { AnswersProps, ManagerProps } from './types/index';
-import questions from './data/questions';
+import { AnswersProps, ManagerProps } from './types/index.js';
+import questions from './data/questions.js';
 import {
   handleNode,
   handleManager,
@@ -12,8 +12,8 @@ import {
   handleBuildTool,
   handleLinting,
   handleStyling,
-} from './modules/index';
-import stripAnswers from './utils/stripAnswers';
+} from './modules/index.js';
+import stripAnswers from './utils/stripAnswers.js';
 
 const setupParrot = async (manager: ManagerProps) => {
   const spinner = createSpinner(

@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
-import { writeConfigFile } from '../scripts/index';
+import { writeConfigFile } from '../scripts/index.js';
 
 const setupBuildTool = async () => {
   const spinner = createSpinner(

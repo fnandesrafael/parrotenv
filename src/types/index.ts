@@ -6,6 +6,7 @@ type AnswersProps = {
   ecosystem: string;
   willLint: string;
   styling: string;
+  testing: string;
 };
 
 type FrameworkProps = {

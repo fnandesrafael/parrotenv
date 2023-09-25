@@ -56,6 +56,14 @@ const frameworks = {
         'tailwindcss postcss autoprefixer stylelint stylelint-config-standard stylelint-order',
     },
   },
+  test: {
+    jestRtl: {
+      configFilePath: 'config/jest/jest.config.json',
+      dependencies: '',
+      devDependencies:
+        'jest @types/jest @testing-library/react @testing-library/jest-dom @testing-library/user-event @babel/core @babel/preset-env @babel/preset-typescript @babel/preset-react babel-jest identity-obj-proxy jest-environment-jsdom',
+    },
+  },
 };
 
 export default frameworks;

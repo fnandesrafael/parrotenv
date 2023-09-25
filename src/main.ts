@@ -12,6 +12,7 @@ import {
   handleBuildTool,
   handleLinting,
   handleStyling,
+  handleTesting,
 } from './modules/index.js';
 import stripAnswers from './utils/stripAnswers.js';
 
@@ -48,6 +49,7 @@ const initEnvSetup = async (answers: AnswersProps, manager: ManagerProps) => {
   await handleBuildTool(answers.bootstrapper, answers.ecosystem);
   await handleLinting(answers.willLint, answers.ecosystem, manager);
   await handleStyling(answers.styling, manager);
+  await handleTesting(answers.testing, manager);
 };
 
 const main = async () => {

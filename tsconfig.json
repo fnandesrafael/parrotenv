@@ -4,7 +4,7 @@
     "target": "ES2022",
     "moduleResolution": "NodeNext",
     "sourceMap": true,
-    "outDir": "dist",
+    "outDir": "dist"
   },
   "include": ["src/**/*"],
   "ts-node": {

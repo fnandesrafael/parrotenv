@@ -1,8 +1,8 @@
 import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
-import { FrameworkProps, ManagerProps } from '../types/index.js';
-import frameworks from '../data/frameworks.js';
-import { installDependencies, runAdditionalCmd, writeConfigFile } from '../scripts/index.js';
+import { FrameworkProps, ManagerProps } from '../types/index';
+import frameworks from '../data/frameworks';
+import { installDependencies, runAdditionalCmd, writeConfigFile } from '../scripts/index';
 
 const setupStyling = async (framework: FrameworkProps, manager: ManagerProps) => {
   const spinner = createSpinner(

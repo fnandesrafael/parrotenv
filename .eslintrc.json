@@ -5,7 +5,9 @@
   },
   "extends": [
     "airbnb-base",
-    "airbnb-typescript/base"
+    "airbnb-typescript/base",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -19,7 +21,12 @@
   ],
   "rules": {
     "newline-per-chained-call": ["error", { "ignoreChainWithDepth": 2 }],
-    "import/extensions": ["error", "ignorePackages", { "js": "never" }],
+    "import/extensions": ["error", "never", {
+      "png": "always",
+      "jpg": "always",
+      "jpeg": "always",
+      "svg": "always"
+    }],
     "no-promise-executor-return": "off"
   }
 }

@@ -1,6 +1,6 @@
-import installDependencies from './installDependencies.js';
-import runAdditionalCmd from './runAdditionalCmd.js';
-import writeConfigFile from './writeConfigFile.js';
+import installDependencies from './installDependencies';
+import runAdditionalCmd from './runAdditionalCmd';
+import writeConfigFile from './writeConfigFile';
 
 export {
   installDependencies,

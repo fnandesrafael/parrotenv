@@ -4,5 +4,9 @@
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true
   },
-  "editor.wordWrap": "on"
+  "editor.wordWrap": "on",
+  "stylelint.validate": [
+    "css",
+    "scss"
+  ]
 }

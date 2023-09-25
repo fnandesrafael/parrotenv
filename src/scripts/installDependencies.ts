@@ -1,6 +1,6 @@
 import { exec } from 'child_process';
 import util from 'util';
-import { ManagerProps, FrameworkProps } from '../types/index.js';
+import { ManagerProps, FrameworkProps } from '../types/index';
 
 const installDependencies = async (framework: FrameworkProps, manager: ManagerProps) => {
   const { dependencies, devDependencies } = framework;

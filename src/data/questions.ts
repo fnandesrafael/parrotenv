@@ -68,6 +68,14 @@ const questions: Array<QuestionProps> = [
       chalk.grey('N/A'),
     ],
   },
+  {
+    name: 'testing',
+    type: 'list',
+    message: `🧪 Do you want to setup a ${chalk.greenBright(
+      'Test',
+    )} framework/library to this project?`,
+    choices: [`${chalk.redBright('Jest')} + RTL`, chalk.gray('N/A')],
+  },
 ];
 
 export default questions;

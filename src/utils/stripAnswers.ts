@@ -9,7 +9,8 @@ const stripAnswers = (obj: { [key: string]: string }): AnswersProps => {
     bootstrapper: '',
     ecosystem: '',
     willLint: '',
-    styling: null,
+    styling: '',
+    testing: '',
   };
 
   Object.entries(obj).forEach((answer) => {

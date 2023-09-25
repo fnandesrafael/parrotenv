@@ -4,6 +4,7 @@ import handleEditor from './handleEditor.js';
 import handleBuildTool from './handleBuildTool.js';
 import handleLinting from './handleLinting.js';
 import handleStyling from './handleStyling.js';
+import handleTesting from './handleTesting.js';
 
 export {
   handleNode,
@@ -12,4 +13,5 @@ export {
   handleBuildTool,
   handleLinting,
   handleStyling,
+  handleTesting,
 };

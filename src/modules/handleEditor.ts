@@ -18,7 +18,9 @@ const setupEditor = async () => {
         )} settings have been configured sucessfully.`,
       )}
       ${chalk.greenBright('+')} ".editorconfig" file was generated.
-      ${chalk.greenBright('+')} "settings.json" file was generated on .vscode.
+      ${chalk.greenBright(
+        '+',
+      )} "settings.json" file was generated at .vscode folder.
       `,
     });
   } catch (e) {

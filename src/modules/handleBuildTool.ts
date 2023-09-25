@@ -11,13 +11,19 @@ const setupBuildTool = async () => {
     await writeConfigFile('config/vite/vite.config.js', 'vite.config.js');
 
     spinner.success({
-      text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.yellow('Vite')} settings have been configured successfully.`)}
+      text: `${chalk.greenBright(
+        `🦜 Parrot! Your ${chalk.yellow(
+          'Vite',
+        )} settings have been configured successfully.`,
+      )}
       ${chalk.greenBright('+')} "vite.config.js" file was generated.
       `,
     });
   } catch (e) {
     spinner.error({
-      text: chalk.red(`The process of setting up your ${chalk.yellow('Vite')} settings has failed... 🦜 Parrot...
+      text: chalk.red(`The process of setting up your ${chalk.yellow(
+        'Vite',
+      )} settings has failed... 🦜 Parrot...
     \n ${e}`),
     });
     process.exit(1);
@@ -27,7 +33,10 @@ const setupBuildTool = async () => {
 const handleBuildTool = async (framework: string, ecosystem: string) => {
   switch (framework) {
     case 'Vite':
-      if (ecosystem === 'React w/ JavaScript' || ecosystem === 'React w/ TypeScript') {
+      if (
+        ecosystem === 'React w/ JavaScript' ||
+        ecosystem === 'React w/ TypeScript'
+      ) {
         await setupBuildTool();
       }
       break;

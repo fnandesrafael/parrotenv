@@ -12,14 +12,20 @@ const setupEditor = async () => {
     await writeConfigFile('ide/vscode/.vscode', '.vscode');
 
     spinner.success({
-      text: `${chalk.greenBright(`🦜 Parrot! Your ${chalk.blueBright('VS Code')} settings have been configured sucessfully.`)}
+      text: `${chalk.greenBright(
+        `🦜 Parrot! Your ${chalk.blueBright(
+          'VS Code',
+        )} settings have been configured sucessfully.`,
+      )}
       ${chalk.greenBright('+')} ".editorconfig" file was generated.
       ${chalk.greenBright('+')} "settings.json" file was generated on .vscode.
       `,
     });
   } catch (e) {
     spinner.error({
-      text: chalk.red(`The process of setting up your ${chalk.blueBright('VS Code')} settings has failed... 🦜 Parrot...
+      text: chalk.red(`The process of setting up your ${chalk.blueBright(
+        'VS Code',
+      )} settings has failed... 🦜 Parrot...
     \n ${e}`),
     });
     process.exit(1);

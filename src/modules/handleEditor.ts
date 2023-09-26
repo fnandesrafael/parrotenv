@@ -24,8 +24,6 @@ const setupEditor = async (
           'Editor',
         )} settings have been configured sucessfully.`,
       )}
-      ${chalk.greenBright('+')} ".prettierrc.json" file was generated.
-      ${chalk.greenBright('+')} ".editorconfig" file was generated.
       `,
     });
   } catch (e) {
@@ -41,7 +39,7 @@ const setupEditor = async (
 
 const handleEditor = async (ide: string, manager: ManagerProps) => {
   const {
-    editor: { vscode },
+    editors: { vscode },
   } = settings;
 
   switch (ide) {

@@ -7,11 +7,10 @@ import { installDependencies, writeConfigFile } from '../scripts/index.js';
 const setupLinter = async (
   framework: FrameworkProps,
   manager: ManagerProps,
-  env?: string,
 ) => {
   const spinner = createSpinner(
     `Your ${chalk.magentaBright(
-      'Linting',
+      'Lint',
     )} settings are being configured. 🦜 Parrot!`,
   ).start();
 
@@ -21,19 +20,10 @@ const setupLinter = async (
       await writeConfigFile(config.configFilePath, config.configFileName);
     });
 
-    if (env === 'ts') {
-      await writeConfigFile(
-        '/config/typescript/tsconfig.json',
-        'tsconfig.json',
-      );
-    } else if (env === 'reactTs') {
-      await writeConfigFile('/config/react-ts/tsconfig.json', 'tsconfig.json');
-    }
-
     spinner.success({
       text: `${chalk.greenBright(
         `🦜 Parrot! Your ${chalk.magentaBright(
-          'Linting',
+          'Lint',
         )} settings have been configured sucessfully.`,
       )}
       ${chalk.greenBright(
@@ -41,27 +31,21 @@ const setupLinter = async (
       )} The following packages have been added to your project devDependencies: ${chalk.gray(
         framework.devDependencies,
       )}.
-      ${chalk.greenBright('+')} ".prettierrc.json" file was generated.
-      ${chalk.greenBright('+')} ".eslintrc.json" file was generated.
-      ${
-        env
-          ? `${chalk.greenBright('+')} "tsconfig.json" file was generated.`
-          : ''
-      }
       ${
         framework.dependencies !== ''
           ? `${chalk.greenBright(
               '+',
             )} The following packages have been added to your project dependencies: ${chalk.gray(
               framework.dependencies,
-            )}.`
+            )}.
+            `
           : ''
       }`,
     });
   } catch (e) {
     spinner.error({
       text: chalk.red(`The process of setting up your ${chalk.magentaBright(
-        'Linting',
+        'Lint',
       )} settings has failed... 🦜 Parrot...
     \n ${e}`),
     });
@@ -85,9 +69,9 @@ const handleLinter = async (
       } else if (ecosystem === 'React w/ JavaScript') {
         await setupLinter(eslintReactJs, manager);
       } else if (ecosystem === 'TypeScript') {
-        await setupLinter(eslintTs, manager, 'ts');
+        await setupLinter(eslintTs, manager);
       } else if (ecosystem === 'React w/ TypeScript') {
-        await setupLinter(eslintReactTs, manager, 'reactTs');
+        await setupLinter(eslintReactTs, manager);
       }
       break;
 

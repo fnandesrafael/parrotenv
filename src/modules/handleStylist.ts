@@ -39,17 +39,16 @@ const setupStylist = async (
       )} The following packages have been added to your project devDependencies: ${chalk.gray(
         framework.devDependencies,
       )}.
-      ${chalk.greenBright('+')} ".stylelintrc.json" file was generated.
       ${
         framework.dependencies !== ''
           ? `${chalk.greenBright(
               '+',
             )} The following packages have been added to your project dependencies: ${chalk.gray(
               framework.dependencies,
-            )}.`
+            )}.
+            `
           : ''
-      }
-      `,
+      }`,
     });
   } catch (e) {
     spinner.error({

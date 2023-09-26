@@ -13,10 +13,6 @@ const settings: SettingsProps = {
           configFileName: '.vscode',
         },
         {
-          configFilePath: 'ide/vscode/settings.json',
-          configFileName: 'settings.json',
-        },
-        {
           configFileName: '.prettierrc.json',
           configFilePath: 'lint/.prettierrc.json',
         },

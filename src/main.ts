@@ -9,7 +9,7 @@ import {
   handleNode,
   handleManager,
   handleEditor,
-  handleBuildTool,
+  handleBootstrapper,
   handleLinting,
   handleStyling,
   handleTesting,
@@ -46,7 +46,7 @@ const setupParrot = async (manager: ManagerProps) => {
 
 const initEnvSetup = async (answers: AnswersProps, manager: ManagerProps) => {
   await handleEditor(answers.ide, manager);
-  await handleBuildTool(answers.bootstrapper, answers.ecosystem);
+  await handleBootstrapper(answers.bootstrapper, answers.ecosystem);
   await handleLinting(answers.willLint, answers.ecosystem, manager);
   await handleStyling(answers.stylist, manager);
   await handleTesting(answers.spectator, manager);

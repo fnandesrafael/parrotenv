@@ -26,15 +26,12 @@ const setupEditor = async (
       )}
       ${chalk.greenBright('+')} ".prettierrc.json" file was generated.
       ${chalk.greenBright('+')} ".editorconfig" file was generated.
-      ${chalk.greenBright(
-        '+',
-      )} "settings.json" file was generated at .vscode folder.
       `,
     });
   } catch (e) {
     spinner.error({
       text: chalk.red(`The process of setting up your ${chalk.blueBright(
-        'VS Code',
+        'Editor',
       )} settings has failed... 🦜 Parrot...
     \n ${e}`),
     });

@@ -8,19 +8,21 @@ import {
   writeConfigFile,
 } from '../scripts/index.js';
 
-const setupStyling = async (
+const setupStylist = async (
   framework: FrameworkProps,
   manager: ManagerProps,
 ) => {
   const spinner = createSpinner(
     `Your ${chalk.magentaBright(
-      'Styling',
+      'Style',
     )} settings are being configured. 🦜 Parrot!`,
   ).start();
 
   try {
     await installDependencies(framework, manager);
-    await writeConfigFile(framework.configFilePath, '.stylelintrc.json');
+    framework.configFiles.forEach(async (config) => {
+      await writeConfigFile(config.configFilePath, config.configFileName);
+    });
 
     if (framework.additionalCmd) {
       await runAdditionalCmd(framework.additionalCmd);
@@ -29,7 +31,7 @@ const setupStyling = async (
     spinner.success({
       text: `${chalk.greenBright(
         `🦜 Parrot! Your ${chalk.magentaBright(
-          'Styling',
+          'Style',
         )} settings have been configured successfully.`,
       )}
       ${chalk.greenBright(
@@ -52,7 +54,7 @@ const setupStyling = async (
   } catch (e) {
     spinner.error({
       text: chalk.red(`The process of setting up your ${chalk.magentaBright(
-        'Styling',
+        'Style',
       )} settings has failed... 🦜 Parrot...
     \n ${e}`),
     });
@@ -60,24 +62,26 @@ const setupStyling = async (
   }
 };
 
-const handleStylint = async (framework: string, manager: ManagerProps) => {
-  const { style } = frameworks;
+const handleStylist = async (framework: string, manager: ManagerProps) => {
+  const {
+    stylists: { stylelintCss, stylelintScss, stylelintSc, stylelintTailwind },
+  } = frameworks;
 
   switch (framework) {
     case 'CSS':
-      await setupStyling(style.css, manager);
+      await setupStylist(stylelintCss, manager);
       break;
 
     case 'SCSS':
-      await setupStyling(style.scss, manager);
+      await setupStylist(stylelintScss, manager);
       break;
 
     case 'Styled Components':
-      await setupStyling(style.styledComponents, manager);
+      await setupStylist(stylelintSc, manager);
       break;
 
     case 'Tailwind':
-      await setupStyling(style.tailwind, manager);
+      await setupStylist(stylelintTailwind, manager);
       break;
 
     default:
@@ -85,4 +89,4 @@ const handleStylint = async (framework: string, manager: ManagerProps) => {
   }
 };
 
-export default handleStylint;
+export default handleStylist;

@@ -11,7 +11,7 @@ import {
   handleEditor,
   handleBootstrapper,
   handleLinter,
-  handleStyling,
+  setupStylist,
   handleTesting,
 } from './modules/index.js';
 import stripAnswers from './utils/stripAnswers.js';
@@ -48,7 +48,7 @@ const initEnvSetup = async (answers: AnswersProps, manager: ManagerProps) => {
   await handleEditor(answers.ide, manager);
   await handleBootstrapper(answers.bootstrapper, answers.ecosystem);
   await handleLinter(answers.willLint, answers.ecosystem, manager);
-  await handleStyling(answers.stylist, manager);
+  await setupStylist(answers.stylist, manager);
   await handleTesting(answers.spectator, manager);
 };
 

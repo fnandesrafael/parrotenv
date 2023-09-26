@@ -1,16 +1,31 @@
 import { SettingsProps } from '../types/index.js';
 
 const settings: SettingsProps = {
-  eslint: {
-    prettier: {
+  editors: {
+    vscode: {
       configFiles: [
+        {
+          configFilePath: 'ide/vscode/.editorconfig',
+          configFileName: '.editorconfig',
+        },
+        {
+          configFilePath: 'ide/vscode/.vscode',
+          configFileName: '.vscode',
+        },
+        {
+          configFilePath: 'ide/vscode/settings.json',
+          configFileName: 'settings.json',
+        },
         {
           configFileName: '.prettierrc.json',
           configFilePath: 'lint/.prettierrc.json',
         },
       ],
+      devDependencies: 'prettier',
     },
-    javascript: {
+  },
+  linters: {
+    eslintJs: {
       configFiles: [
         {
           configFileName: '.eslintrc.json',
@@ -21,7 +36,7 @@ const settings: SettingsProps = {
       devDependencies:
         'eslint eslint-config-airbnb-base eslint-config-prettier eslint-plugin-import eslint-plugin-prettier prettier',
     },
-    reactJs: {
+    eslintReactJs: {
       configFiles: [
         {
           configFileName: '.eslintrc.json',
@@ -32,7 +47,7 @@ const settings: SettingsProps = {
       devDependencies:
         'eslint eslint-config-airbnb-base eslint-config-prettier eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks prettier',
     },
-    typescript: {
+    eslintTs: {
       configFiles: [
         {
           configFileName: '.eslintrc.json',
@@ -47,7 +62,7 @@ const settings: SettingsProps = {
       devDependencies:
         'typescript @typescript-eslint/eslint-plugin @typescript-eslint/parser @types/node eslint eslint-config-airbnb-base eslint-config-airbnb-typescript eslint-plugin-import prettier eslint-config-prettier eslint-plugin-prettier',
     },
-    reactTs: {
+    eslintReactTs: {
       configFiles: [
         {
           configFilePath: 'lint/react-ts/.eslintrc.json',
@@ -63,8 +78,8 @@ const settings: SettingsProps = {
         'eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y typescript @typescript-eslint/eslint-plugin @typescript-eslint/parser @types/node eslint eslint-config-airbnb-base eslint-config-airbnb-typescript eslint-plugin-import prettier eslint-config-prettier eslint-plugin-prettier',
     },
   },
-  stylelint: {
-    css: {
+  stylists: {
+    stylelintCss: {
       configFiles: [
         {
           configFilePath: 'style/css/.stylelintrc.json',
@@ -74,7 +89,7 @@ const settings: SettingsProps = {
       dependencies: '',
       devDependencies: 'stylelint stylelint-config-standard stylelint-order',
     },
-    scss: {
+    stylelintScss: {
       configFiles: [
         {
           configFilePath: 'style/scss/.stylelintrc.json',
@@ -85,7 +100,7 @@ const settings: SettingsProps = {
       devDependencies:
         'stylelint stylelint-config-standard stylelint-order sass postcss-scss',
     },
-    styledComponents: {
+    stylelintSc: {
       configFiles: [
         {
           configFilePath: 'style/styled-components/.stylelintrc.json',
@@ -96,7 +111,7 @@ const settings: SettingsProps = {
       devDependencies:
         'stylelint stylelint-config-standard stylelint-order postcss-styled-components',
     },
-    tailwind: {
+    stylelintTailwind: {
       additionalCmd: 'npx tailwindcss init -p',
       configFiles: [
         {
@@ -109,7 +124,7 @@ const settings: SettingsProps = {
         'tailwindcss postcss autoprefixer stylelint stylelint-config-standard stylelint-order',
     },
   },
-  test: {
+  spectators: {
     jestRtl: {
       configFiles: [
         {
@@ -120,6 +135,24 @@ const settings: SettingsProps = {
       dependencies: '',
       devDependencies:
         'jest @types/jest @testing-library/react @testing-library/jest-dom @testing-library/user-event @babel/core @babel/preset-env @babel/preset-typescript @babel/preset-react babel-jest identity-obj-proxy jest-environment-jsdom',
+    },
+  },
+  bootstrappers: {
+    viteJs: {
+      configFiles: [
+        {
+          configFileName: 'vite.config.js',
+          configFilePath: 'config/vite/vite.config.js',
+        },
+      ],
+    },
+    viteTs: {
+      configFiles: [
+        {
+          configFileName: 'vite.config.ts',
+          configFilePath: 'config/vite/vite.config.ts',
+        },
+      ],
     },
   },
 };

@@ -1,12 +1,12 @@
 type AnswersProps = {
-  node: string;
+  hasNode: string;
   manager: string;
   ide: string;
   bootstrapper: string;
   ecosystem: string;
   willLint: string;
-  styling: string;
-  testing: string;
+  stylist: string;
+  spectator: string;
 };
 
 type FrameworkProps = {

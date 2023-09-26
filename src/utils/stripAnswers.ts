@@ -3,14 +3,14 @@ import { AnswersProps } from '../types/index.js';
 
 const stripAnswers = (obj: { [key: string]: string }): AnswersProps => {
   const stripedAnswers: AnswersProps = {
-    node: '',
+    hasNode: '',
     manager: '',
     ide: '',
     bootstrapper: '',
     ecosystem: '',
     willLint: '',
-    styling: '',
-    testing: '',
+    stylist: '',
+    spectator: '',
   };
 
   Object.entries(obj).forEach((answer) => {

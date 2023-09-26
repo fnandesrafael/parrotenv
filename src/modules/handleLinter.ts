@@ -4,7 +4,7 @@ import { FrameworkProps, ManagerProps } from '../types/index.js';
 import frameworks from '../data/settings.js';
 import { installDependencies, writeConfigFile } from '../scripts/index.js';
 
-const setupLinting = async (
+const setupLinter = async (
   framework: FrameworkProps,
   manager: ManagerProps,
   env?: string,
@@ -16,13 +16,10 @@ const setupLinting = async (
   ).start();
 
   try {
-    const {
-      lint: { prettier },
-    } = frameworks;
-
     await installDependencies(framework, manager);
-    await writeConfigFile(framework.configFilePath, '.eslintrc.json');
-    await writeConfigFile(prettier.configFilePath, '.prettierrc.json');
+    framework.configFiles.forEach(async (config) => {
+      await writeConfigFile(config.configFilePath, config.configFileName);
+    });
 
     if (env === 'ts') {
       await writeConfigFile(
@@ -72,25 +69,25 @@ const setupLinting = async (
   }
 };
 
-const handleLinting = async (
+const handleLinter = async (
   willLint: string,
   ecosystem: string,
   manager: ManagerProps,
 ) => {
   const {
-    lint: { eslint },
+    linters: { eslintJs, eslintReactJs, eslintTs, eslintReactTs },
   } = frameworks;
 
   switch (willLint) {
     case 'Yes':
       if (ecosystem === 'JavaScript') {
-        await setupLinting(eslint.javascript, manager);
+        await setupLinter(eslintJs, manager);
       } else if (ecosystem === 'React w/ JavaScript') {
-        await setupLinting(eslint.reactJs, manager);
+        await setupLinter(eslintReactJs, manager);
       } else if (ecosystem === 'TypeScript') {
-        await setupLinting(eslint.typescript, manager, 'ts');
+        await setupLinter(eslintTs, manager, 'ts');
       } else if (ecosystem === 'React w/ TypeScript') {
-        await setupLinting(eslint.reactTs, manager, 'reactTs');
+        await setupLinter(eslintReactTs, manager, 'reactTs');
       }
       break;
 
@@ -99,4 +96,4 @@ const handleLinting = async (
   }
 };
 
-export default handleLinting;
+export default handleLinter;

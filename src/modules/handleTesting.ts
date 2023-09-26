@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
 import { FrameworkProps, ManagerProps } from '../types/index.js';
-import frameworks from '../data/frameworks.js';
+import frameworks from '../data/settings.js';
 import installDependencies from '../scripts/installDependencies.js';
 import writeConfigFile from '../scripts/writeConfigFile.js';
 

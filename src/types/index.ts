@@ -11,7 +11,7 @@ type AnswersProps = {
 
 type FrameworkProps = {
   additionalCmd?: string;
-  configFilePath?: string;
+  configFiles?: Array<{ configFileName: string; configFilePath: string }>;
   dependencies?: string;
   devDependencies?: string;
 };
@@ -28,4 +28,14 @@ type QuestionProps = {
   choices: Array<string>;
 };
 
-export { AnswersProps, FrameworkProps, QuestionProps, ManagerProps };
+type SettingsProps = {
+  [key: string]: { [key: string]: FrameworkProps };
+};
+
+export {
+  AnswersProps,
+  FrameworkProps,
+  ManagerProps,
+  QuestionProps,
+  SettingsProps,
+};

@@ -3,7 +3,7 @@ import { QuestionProps } from '../types/index.js';
 
 const questions: Array<QuestionProps> = [
   {
-    name: 'node',
+    name: 'hasNode',
     type: 'list',
     message: `🤔 Have you already initialized a ${chalk.greenBright(
       'node',
@@ -25,7 +25,7 @@ const questions: Array<QuestionProps> = [
     choices: [chalk.blueBright('VS Code'), chalk.grey('N/A')],
   },
   {
-    name: 'bootstraper',
+    name: 'bootstrapper',
     type: 'list',
     message: '🛠️  Which framework have you used to bootstrap this project?',
     choices: [chalk.yellow('Vite'), chalk.grey('N/A')],
@@ -49,11 +49,11 @@ const questions: Array<QuestionProps> = [
     type: 'list',
     message: `🧹 Do you want to configure ${chalk.magentaBright(
       'ESLint',
-    )} and ${chalk.magentaBright('Prettier')} to lint and format your code?`,
+    )} to lint your code?`,
     choices: ['Yes', 'No'],
   },
   {
-    name: 'styling',
+    name: 'stylist',
     type: 'list',
     message: `🎨 Perchance your'e planning on writing any ${chalk.blue(
       'CSS',
@@ -69,7 +69,7 @@ const questions: Array<QuestionProps> = [
     ],
   },
   {
-    name: 'testing',
+    name: 'spectator',
     type: 'list',
     message: `🧪 Do you want to setup a ${chalk.greenBright(
       'Test',

@@ -1,17 +1,17 @@
 type AnswersProps = {
-  node: string;
+  hasNode: string;
   manager: string;
   ide: string;
   bootstrapper: string;
   ecosystem: string;
   willLint: string;
-  styling: string;
-  testing: string;
+  stylist: string;
+  spectator: string;
 };
 
 type FrameworkProps = {
   additionalCmd?: string;
-  configFilePath?: string;
+  configFiles?: Array<{ configFileName: string; configFilePath: string }>;
   dependencies?: string;
   devDependencies?: string;
 };
@@ -28,4 +28,14 @@ type QuestionProps = {
   choices: Array<string>;
 };
 
-export { AnswersProps, FrameworkProps, QuestionProps, ManagerProps };
+type SettingsProps = {
+  [key: string]: { [key: string]: FrameworkProps };
+};
+
+export {
+  AnswersProps,
+  FrameworkProps,
+  ManagerProps,
+  QuestionProps,
+  SettingsProps,
+};

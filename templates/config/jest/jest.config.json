@@ -1,5 +1,5 @@
 {
 	"testEnvironment": ["jest-environment-jsdom"],
-	"setupFilesAfterEnv": ["<rootDir>/.jest/setup-test.js"],
+	"setupFilesAfterEnv": ["<rootDir>/src/setupTests.{js,ts}"],
 	"collectCoverageFrom": ["<rootDir>/src/**/*.{ts,tsx}*"]
 }

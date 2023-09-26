@@ -9,10 +9,10 @@ import {
   handleNode,
   handleManager,
   handleEditor,
-  handleBuildTool,
-  handleLinting,
-  handleStyling,
-  handleTesting,
+  handleBootstrapper,
+  handleLinter,
+  setupStylist,
+  handleSpectator,
 } from './modules/index.js';
 import stripAnswers from './utils/stripAnswers.js';
 
@@ -45,18 +45,18 @@ const setupParrot = async (manager: ManagerProps) => {
 };
 
 const initEnvSetup = async (answers: AnswersProps, manager: ManagerProps) => {
-  await handleEditor(answers.ide);
-  await handleBuildTool(answers.bootstrapper, answers.ecosystem);
-  await handleLinting(answers.willLint, answers.ecosystem, manager);
-  await handleStyling(answers.styling, manager);
-  await handleTesting(answers.testing, manager);
+  await handleEditor(answers.ide, manager);
+  await handleBootstrapper(answers.bootstrapper, answers.ecosystem);
+  await handleLinter(answers.willLint, answers.ecosystem, manager);
+  await handleSpectator(answers.spectator, manager);
+  await setupStylist(answers.stylist, manager);
 };
 
 const main = async () => {
   const answers = await inquirer.prompt(questions);
   const stripedAnswers = stripAnswers(answers);
 
-  const hasInit: boolean = await handleNode(stripedAnswers.node);
+  const hasInit: boolean = await handleNode(stripedAnswers.hasNode);
   const manager = await handleManager(stripedAnswers.manager);
 
   if (hasInit) {

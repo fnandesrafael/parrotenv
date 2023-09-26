@@ -1,11 +1,11 @@
 import chalk from 'chalk';
 import { createSpinner } from 'nanospinner';
 import { FrameworkProps, ManagerProps } from '../types/index.js';
-import frameworks from '../data/frameworks.js';
+import frameworks from '../data/settings.js';
 import installDependencies from '../scripts/installDependencies.js';
 import writeConfigFile from '../scripts/writeConfigFile.js';
 
-const setupTesting = async (
+const setupSpectator = async (
   framework: FrameworkProps,
   manager: ManagerProps,
 ) => {
@@ -17,12 +17,9 @@ const setupTesting = async (
 
   try {
     await installDependencies(framework, manager);
-    await writeConfigFile(framework.configFilePath, 'jest.config.json');
-    await writeConfigFile(
-      'config/babel/babel.config.json',
-      'babel.config.json',
-    );
-    await writeConfigFile('config/jest/.jest', '.jest');
+    framework.configFiles.forEach(async (config) => {
+      await writeConfigFile(config.configFilePath, config.configFileName);
+    });
 
     spinner.success({
       text: `${chalk.greenBright(
@@ -35,11 +32,6 @@ const setupTesting = async (
       )} The following packages have been added to your project devDependencies: ${chalk.gray(
         framework.devDependencies,
       )}.
-      ${chalk.greenBright('+')} "jest.config.json" file was generated.
-      ${chalk.greenBright('+')} "babel.config.json" file was generated.
-      ${chalk.greenBright(
-        '+',
-      )} "setup-test.js" file was generated at .jest folder.
       ${
         framework.dependencies !== ''
           ? `${chalk.greenBright(
@@ -61,12 +53,12 @@ const setupTesting = async (
   }
 };
 
-const handleTesting = async (framework: string, manager: ManagerProps) => {
-  const { test } = frameworks;
+const handleSpectator = async (framework: string, manager: ManagerProps) => {
+  const { spectators } = frameworks;
 
   switch (framework) {
     case 'Jest + RTL':
-      setupTesting(test.jestRtl, manager);
+      setupSpectator(spectators.jestRtl, manager);
       break;
 
     default:
@@ -74,4 +66,4 @@ const handleTesting = async (framework: string, manager: ManagerProps) => {
   }
 };
 
-export default handleTesting;
+export default handleSpectator;

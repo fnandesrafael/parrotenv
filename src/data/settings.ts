@@ -127,6 +127,10 @@ const settings: SettingsProps = {
           configFilePath: 'config/jest/jest.config.json',
           configFileName: 'jest.config.json',
         },
+        {
+          configFilePath: 'config/babel/babel.config.json',
+          configFileName: 'babel.config.json',
+        },
       ],
       dependencies: '',
       devDependencies:

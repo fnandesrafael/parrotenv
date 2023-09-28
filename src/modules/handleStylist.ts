@@ -63,7 +63,7 @@ const setupStylist = async (
 
 const handleStylist = async (framework: string, manager: ManagerProps) => {
   const {
-    stylists: { stylelintCss, stylelintScss, stylelintSc, stylelintTailwind },
+    stylists: { stylelintCss, stylelintScss, stylelintSc, stylelintTw },
   } = frameworks;
 
   switch (framework) {
@@ -80,7 +80,7 @@ const handleStylist = async (framework: string, manager: ManagerProps) => {
       break;
 
     case 'Tailwind':
-      await setupStylist(stylelintTailwind, manager);
+      await setupStylist(stylelintTw, manager);
       break;
 
     default:

@@ -58,7 +58,7 @@ const handleSpectator = async (framework: string, manager: ManagerProps) => {
 
   switch (framework) {
     case 'Jest + RTL':
-      setupSpectator(spectators.jestRtl, manager);
+      await setupSpectator(spectators.jestRtl, manager);
       break;
 
     default:

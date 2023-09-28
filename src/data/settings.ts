@@ -107,7 +107,7 @@ const settings: SettingsProps = {
       devDependencies:
         'stylelint stylelint-config-standard stylelint-order postcss-styled-components',
     },
-    stylelintTailwind: {
+    stylelintTw: {
       additionalCmd: 'npx tailwindcss init -p',
       configFiles: [
         {
@@ -117,7 +117,7 @@ const settings: SettingsProps = {
       ],
       dependencies: '',
       devDependencies:
-        'tailwindcss postcss autoprefixer stylelint stylelint-config-standard stylelint-order',
+        'tailwindcss postcss autoprefixer stylelint stylelint-config-standard stylelint-order prettier-plugin-tailwindcss',
     },
   },
   spectators: {

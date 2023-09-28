@@ -48,8 +48,8 @@ const initEnvSetup = async (answers: AnswersProps, manager: ManagerProps) => {
   await handleEditor(answers.ide, manager);
   await handleBootstrapper(answers.bootstrapper, answers.ecosystem);
   await handleLinter(answers.willLint, answers.ecosystem, manager);
-  await handleSpectator(answers.spectator, manager);
   await setupStylist(answers.stylist, manager);
+  await handleSpectator(answers.spectator, manager);
 };
 
 const main = async () => {

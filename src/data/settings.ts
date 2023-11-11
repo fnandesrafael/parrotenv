@@ -117,14 +117,14 @@ const settings: SettingsProps = {
       ],
       dependencies: '',
       devDependencies:
-        'tailwindcss postcss autoprefixer stylelint stylelint-config-standard stylelint-order prettier-plugin-tailwindcss',
+        'tailwindcss postcss autoprefixer stylelint stylelint-config-standard stylelint-order eslint-plugin-tailwindcss',
     },
   },
   spectators: {
-    jestRtl: {
+    jestVite: {
       configFiles: [
         {
-          configFilePath: 'config/jest/jest.config.json',
+          configFilePath: 'config/jest/vite/jest.config.json',
           configFileName: 'jest.config.json',
         },
         {
@@ -135,6 +135,17 @@ const settings: SettingsProps = {
       dependencies: '',
       devDependencies:
         'jest @types/jest @testing-library/react @testing-library/jest-dom @testing-library/user-event @babel/core @babel/preset-env @babel/preset-typescript @babel/preset-react babel-jest identity-obj-proxy jest-environment-jsdom',
+    },
+    jestNext: {
+      configFiles: [
+        {
+          configFilePath: 'config/jest/next/jest.config.json',
+          configFileName: 'jest.config.json',
+        },
+      ],
+      dependencies: '',
+      devDependencies:
+        'jest @types/jest @testing-library/react @testing-library/jest-dom @testing-library/user-event @babel/preset-typescript identity-obj-proxy jest-environment-jsdom',
     },
   },
   bootstrappers: {

@@ -28,7 +28,7 @@ const questions: Array<QuestionProps> = [
     name: 'bootstrapper',
     type: 'list',
     message: '🛠️  Which framework have you used to bootstrap this project?',
-    choices: [chalk.yellow('Vite'), chalk.grey('N/A')],
+    choices: [chalk.yellow('Vite'), chalk.white('Next'), chalk.grey('N/A')],
   },
   {
     name: 'ecosystem',

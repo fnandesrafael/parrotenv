@@ -53,12 +53,20 @@ const setupSpectator = async (
   }
 };
 
-const handleSpectator = async (framework: string, manager: ManagerProps) => {
+const handleSpectator = async (
+  bootstrapper: string,
+  framework: string,
+  manager: ManagerProps,
+) => {
   const { spectators } = frameworks;
 
   switch (framework) {
     case 'Jest + RTL':
-      await setupSpectator(spectators.jestRtl, manager);
+      if (bootstrapper === 'Vite') {
+        await setupSpectator(spectators.jestVite, manager);
+      } else if (bootstrapper === 'Next') {
+        await setupSpectator(spectators.jestNext, manager);
+      }
       break;
 
     default:

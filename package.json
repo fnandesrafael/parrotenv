@@ -1,6 +1,6 @@
 {
   "name": "parrotenv",
-  "version": "1.6.5",
+  "version": "1.7.0",
   "description": "ParrotEnv is a CLI framework that quickly sets up a development environment for your JavaScript-based project with standardized configurations for the language's essential development tools.",
   "keywords": [
     "JavaScript",
